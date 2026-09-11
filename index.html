@@ -97,13 +97,6 @@
       border: 1px solid #e1e3de;
       border-radius: 18px;
       padding: 28px;
-      min-height: 210px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
 
     .icon {
@@ -119,11 +112,93 @@
     .card p {
       color: #68736d;
       font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .calculator {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid #eeeeea;
+    }
+
+    .field {
+      margin-bottom: 14px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #d6d9d4;
+      border-radius: 9px;
+      font-size: 16px;
+    }
+
+    .field input:focus {
+      outline: 2px solid #17221b;
+      border-color: transparent;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 9px;
+      background: #17221b;
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .result {
+      display: none;
+      margin-top: 18px;
+      padding: 17px;
+      background: #f0f1ed;
+      border-radius: 12px;
+    }
+
+    .result.visible {
+      display: block;
+    }
+
+    .result h4 {
+      margin-bottom: 12px;
+      font-size: 17px;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 6px 0;
+      border-bottom: 1px solid #dddeda;
+      font-size: 14px;
+    }
+
+    .result-row:last-child {
+      border-bottom: none;
+    }
+
+    .result-row strong {
+      text-align: right;
     }
 
     .coming {
       display: inline-block;
-      margin-top: 18px;
+      margin-top: 4px;
       font-size: 12px;
       color: #7b827d;
       background: #f0f1ed;
@@ -131,18 +206,13 @@
       border-radius: 20px;
     }
 
-    footer {
-      text-align: center;
-      padding: 35px;
-      color: #8a918c;
-      font-size: 13px;
-    }
-
-    @media (max-width: 750px) {
+    @media (max-width: 850px) {
       .tools {
         grid-template-columns: 1fr;
       }
+    }
 
+    @media (max-width: 750px) {
       main {
         padding-top: 45px;
       }
@@ -183,33 +253,110 @@
 
       <div class="tools">
 
+        <!-- CALCULATEUR DE BÉTON -->
         <div class="card">
           <div class="icon">🧱</div>
+
           <h3>Calculateur de béton</h3>
+
           <p>
             Estimez les quantités de ciment, sable et gravier
             nécessaires pour votre béton.
           </p>
-          <span class="coming">Bientôt disponible</span>
+
+          <div class="calculator">
+
+            <div class="field">
+              <label for="length">Longueur (m)</label>
+              <input
+                id="length"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex. 5"
+              >
+            </div>
+
+            <div class="field">
+              <label for="width">Largeur (m)</label>
+              <input
+                id="width"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex. 4"
+              >
+            </div>
+
+            <div class="field">
+              <label for="thickness">Épaisseur (cm)</label>
+              <input
+                id="thickness"
+                type="number"
+                min="0"
+                step="0.1"
+                placeholder="Ex. 10"
+              >
+            </div>
+
+            <button onclick="calculateConcrete()">
+              Calculer
+            </button>
+
+            <div id="concreteResult" class="result">
+
+              <h4>Estimation des matériaux</h4>
+
+              <div class="result-row">
+                <span>Volume de béton</span>
+                <strong id="concreteVolume"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Ciment</span>
+                <strong id="cementBags"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Sable</span>
+                <strong id="sandVolume"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Gravier</span>
+                <strong id="gravelVolume"></strong>
+              </div>
+
+            </div>
+
+          </div>
         </div>
 
+        <!-- CALCULATEUR DE PARPAINGS -->
         <div class="card">
           <div class="icon">🧱</div>
+
           <h3>Calculateur de parpaings</h3>
+
           <p>
             Calculez le nombre de parpaings nécessaires
             pour vos murs.
           </p>
+
           <span class="coming">Bientôt disponible</span>
         </div>
 
+        <!-- COÛT DE CONSTRUCTION -->
         <div class="card">
           <div class="icon">💰</div>
+
           <h3>Coût de construction</h3>
+
           <p>
             Obtenez une première estimation du budget
             nécessaire pour construire votre maison.
           </p>
+
           <span class="coming">Bientôt disponible</span>
         </div>
 
@@ -218,9 +365,69 @@
 
   </main>
 
-  <footer>
-    © 2026 MESUMAT — Mesure les matériaux.
-  </footer>
+  <script>
+    function calculateConcrete() {
+
+      const length = parseFloat(
+        document.getElementById("length").value
+      );
+
+      const width = parseFloat(
+        document.getElementById("width").value
+      );
+
+      const thicknessCm = parseFloat(
+        document.getElementById("thickness").value
+      );
+
+      if (
+        isNaN(length) ||
+        isNaN(width) ||
+        isNaN(thicknessCm) ||
+        length <= 0 ||
+        width <= 0 ||
+        thicknessCm <= 0
+      ) {
+        alert("Veuillez remplir correctement les trois dimensions.");
+        return;
+      }
+
+      const thickness = thicknessCm / 100;
+
+      const volume = length * width * thickness;
+
+      /*
+        Estimation provisoire basée sur une composition
+        courante de béton.
+        Ces valeurs seront affinées pour MESUMAT
+        selon le dosage choisi.
+      */
+
+      const cementPerM3 = 7;
+      const sandPerM3 = 0.50;
+      const gravelPerM3 = 0.80;
+
+      const cementBags = Math.ceil(volume * cementPerM3);
+      const sand = volume * sandPerM3;
+      const gravel = volume * gravelPerM3;
+
+      document.getElementById("concreteVolume").textContent =
+        volume.toFixed(2) + " m³";
+
+      document.getElementById("cementBags").textContent =
+        cementBags + " sacs";
+
+      document.getElementById("sandVolume").textContent =
+        sand.toFixed(2) + " m³";
+
+      document.getElementById("gravelVolume").textContent =
+        gravel.toFixed(2) + " m³";
+
+      document
+        .getElementById("concreteResult")
+        .classList.add("visible");
+    }
+  </script>
 
 </body>
 </html>
