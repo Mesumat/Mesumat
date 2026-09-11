@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MESUMAT — Mesure les matériaux</title>
+
+  <meta
+    name="description"
+    content="MESUMAT vous aide à estimer les matériaux et le coût de vos projets de construction."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f5;
+      color: #17221b;
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 24px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border-bottom: 1px solid #e8e8e3;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .tagline {
+      color: #68736d;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 7%;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto;
+      color: #66716b;
+      font-size: 18px;
+    }
+
+    .country {
+      margin: 35px auto 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      border: 1px solid #dddeda;
+      border-radius: 12px;
+      padding: 12px 18px;
+    }
+
+    .tools-title {
+      font-size: 25px;
+      margin-bottom: 20px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e1e3de;
+      border-radius: 18px;
+      padding: 28px;
+      min-height: 210px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #68736d;
+      font-size: 15px;
+    }
+
+    .coming {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 12px;
+      color: #7b827d;
+      background: #f0f1ed;
+      padding: 5px 9px;
+      border-radius: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 35px;
+      color: #8a918c;
+      font-size: 13px;
+    }
+
+    @media (max-width: 750px) {
+      .tools {
+        grid-template-columns: 1fr;
+      }
+
+      main {
+        padding-top: 45px;
+      }
+
+      header {
+        align-items: flex-start;
+        gap: 8px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">MESUMAT</div>
+    <div class="tagline">Mesure les matériaux.</div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <h1>Construisez avec<br>plus de clarté.</h1>
+
+      <p>
+        Des outils simples pour estimer les matériaux,
+        les quantités et le coût de vos projets de construction.
+      </p>
+
+      <div class="country">
+        🌍 <strong>Votre pays :</strong> Burkina Faso
+      </div>
+    </section>
+
+    <section>
+      <h2 class="tools-title">Nos calculateurs</h2>
+
+      <div class="tools">
+
+        <div class="card">
+          <div class="icon">🧱</div>
+          <h3>Calculateur de béton</h3>
+          <p>
+            Estimez les quantités de ciment, sable et gravier
+            nécessaires pour votre béton.
+          </p>
+          <span class="coming">Bientôt disponible</span>
+        </div>
+
+        <div class="card">
+          <div class="icon">🧱</div>
+          <h3>Calculateur de parpaings</h3>
+          <p>
+            Calculez le nombre de parpaings nécessaires
+            pour vos murs.
+          </p>
+          <span class="coming">Bientôt disponible</span>
+        </div>
+
+        <div class="card">
+          <div class="icon">💰</div>
+          <h3>Coût de construction</h3>
+          <p>
+            Obtenez une première estimation du budget
+            nécessaire pour construire votre maison.
+          </p>
+          <span class="coming">Bientôt disponible</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 MESUMAT — Mesure les matériaux.
+  </footer>
+
+</body>
+</html>
