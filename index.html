@@ -359,21 +359,28 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
         </div>
         
         <div class="field">
-          <label for="margin">Marge de sécurité</label>
+         <label for="margin">Marge pour pertes de chantier</label>
 
-          <select id="margin">
-            <option value="0" selected>
-              Aucune marge
-            </option>
+<select id="margin">
 
-            <option value="0.05">
-              5 %
-            </option>
+  <option value="0" selected>
+    Aucune marge
+  </option>
 
-            <option value="0.10">
-              10 %
-            </option>
-          </select>
+  <option value="0.05">
+    5 % — petites pertes
+  </option>
+
+  <option value="0.10">
+    10 % — pertes plus importantes
+  </option>
+
+</select>
+
+<p style="font-size: 13px; margin-top: 8px; color: #666;">
+  Cette marge permet de prévoir une petite quantité supplémentaire
+  pour les pertes liées au transport, au stockage et à la mise en œuvre.
+</p>
         </div>
         
         <button onclick="calculateConcrete()">
