@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -6,10 +7,11 @@
 
   <title>MESUMAT — Mesure les matériaux</title>
 
-  <meta
-    name="description"
-    content="MESUMAT vous aide à estimer les matériaux et le coût de vos projets de construction."
-  >
+<meta
+name="description"
+content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires pour vos projets de construction."
+
+>
 
   <style>
     * {
@@ -132,15 +134,18 @@
       margin-bottom: 6px;
     }
 
-    .field input {
+    .field input,
+    .field select {
       width: 100%;
       padding: 11px 12px;
       border: 1px solid #d6d9d4;
       border-radius: 9px;
       font-size: 16px;
+      background: white;
     }
 
-    .field input:focus {
+    .field input:focus,
+    .field select:focus {
       outline: 2px solid #17221b;
       border-color: transparent;
     }
@@ -183,7 +188,7 @@
       display: flex;
       justify-content: space-between;
       gap: 15px;
-      padding: 6px 0;
+      padding: 7px 0;
       border-bottom: 1px solid #dddeda;
       font-size: 14px;
     }
@@ -194,6 +199,13 @@
 
     .result-row strong {
       text-align: right;
+    }
+
+    .note {
+      margin-top: 15px;
+      color: #68736d;
+      font-size: 12px;
+      line-height: 1.5;
     }
 
     .coming {
@@ -224,6 +236,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -235,137 +248,184 @@
 
   <main>
 
-    <section class="hero">
-      <h1>Construisez avec<br>plus de clarté.</h1>
+```
+<section class="hero">
+
+  <h1>Construisez avec<br>plus de clarté.</h1>
+
+  <p>
+    Des outils simples pour estimer les matériaux,
+    les quantités et le coût de vos projets de construction.
+  </p>
+
+  <div class="country">
+    🌍 <strong>Votre pays :</strong> Burkina Faso
+  </div>
+
+</section>
+
+<section>
+
+  <h2 class="tools-title">Nos calculateurs</h2>
+
+  <div class="tools">
+
+    <!-- CALCULATEUR DE BÉTON -->
+
+    <div class="card">
+
+      <div class="icon">🧱</div>
+
+      <h3>Calculateur de béton</h3>
 
       <p>
-        Des outils simples pour estimer les matériaux,
-        les quantités et le coût de vos projets de construction.
+        Estimez les quantités de ciment, sable et gravier
+        nécessaires pour votre béton.
       </p>
 
-      <div class="country">
-        🌍 <strong>Votre pays :</strong> Burkina Faso
-      </div>
-    </section>
+      <div class="calculator">
 
-    <section>
-      <h2 class="tools-title">Nos calculateurs</h2>
+        <div class="field">
+          <label for="length">Longueur (m)</label>
+          <input
+            id="length"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="Ex. 5"
+          >
+        </div>
 
-      <div class="tools">
+        <div class="field">
+          <label for="width">Largeur (m)</label>
+          <input
+            id="width"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="Ex. 4"
+          >
+        </div>
 
-        <!-- CALCULATEUR DE BÉTON -->
-        <div class="card">
-          <div class="icon">🧱</div>
+        <div class="field">
+          <label for="thickness">Épaisseur (cm)</label>
+          <input
+            id="thickness"
+            type="number"
+            min="0"
+            step="0.1"
+            placeholder="Ex. 10"
+          >
+        </div>
 
-          <h3>Calculateur de béton</h3>
+        <div class="field">
+          <label for="mix">Type de béton</label>
 
-          <p>
-            Estimez les quantités de ciment, sable et gravier
-            nécessaires pour votre béton.
-          </p>
+          <select id="mix">
 
-          <div class="calculator">
+            <option value="lean">
+              1:3:6 — Béton maigre
+            </option>
 
-            <div class="field">
-              <label for="length">Longueur (m)</label>
-              <input
-                id="length"
-                type="number"
-                min="0"
-                step="0.01"
-                placeholder="Ex. 5"
-              >
-            </div>
+            <option value="ordinary" selected>
+              1:2:4 — Béton courant
+            </option>
 
-            <div class="field">
-              <label for="width">Largeur (m)</label>
-              <input
-                id="width"
-                type="number"
-                min="0"
-                step="0.01"
-                placeholder="Ex. 4"
-              >
-            </div>
+            <option value="rich">
+              1:2:3 — Béton plus riche
+            </option>
 
-            <div class="field">
-              <label for="thickness">Épaisseur (cm)</label>
-              <input
-                id="thickness"
-                type="number"
-                min="0"
-                step="0.1"
-                placeholder="Ex. 10"
-              >
-            </div>
+          </select>
+        </div>
 
-            <button onclick="calculateConcrete()">
-              Calculer
-            </button>
+        <button onclick="calculateConcrete()">
+          Calculer
+        </button>
 
-            <div id="concreteResult" class="result">
+        <div id="concreteResult" class="result">
 
-              <h4>Estimation des matériaux</h4>
+          <h4>Estimation des matériaux</h4>
 
-              <div class="result-row">
-                <span>Volume de béton</span>
-                <strong id="concreteVolume"></strong>
-              </div>
-
-              <div class="result-row">
-                <span>Ciment</span>
-                <strong id="cementBags"></strong>
-              </div>
-
-              <div class="result-row">
-                <span>Sable</span>
-                <strong id="sandVolume"></strong>
-              </div>
-
-              <div class="result-row">
-                <span>Gravier</span>
-                <strong id="gravelVolume"></strong>
-              </div>
-
-            </div>
-
+          <div class="result-row">
+            <span>Volume de béton</span>
+            <strong id="concreteVolume"></strong>
           </div>
-        </div>
 
-        <!-- CALCULATEUR DE PARPAINGS -->
-        <div class="card">
-          <div class="icon">🧱</div>
+          <div class="result-row">
+            <span>Ciment</span>
+            <strong id="cementBags"></strong>
+          </div>
 
-          <h3>Calculateur de parpaings</h3>
+          <div class="result-row">
+            <span>Sable</span>
+            <strong id="sandVolume"></strong>
+          </div>
 
-          <p>
-            Calculez le nombre de parpaings nécessaires
-            pour vos murs.
+          <div class="result-row">
+            <span>Gravier</span>
+            <strong id="gravelVolume"></strong>
+          </div>
+
+          <p class="note">
+            Estimation indicative basée sur des proportions
+            nominales de mélange. Pour les éléments structurels
+            ou les ouvrages importants, faites valider le dosage
+            par un professionnel qualifié.
           </p>
 
-          <span class="coming">Bientôt disponible</span>
-        </div>
-
-        <!-- COÛT DE CONSTRUCTION -->
-        <div class="card">
-          <div class="icon">💰</div>
-
-          <h3>Coût de construction</h3>
-
-          <p>
-            Obtenez une première estimation du budget
-            nécessaire pour construire votre maison.
-          </p>
-
-          <span class="coming">Bientôt disponible</span>
         </div>
 
       </div>
-    </section>
+
+    </div>
+
+    <!-- CALCULATEUR DE PARPAINGS -->
+
+    <div class="card">
+
+      <div class="icon">🧱</div>
+
+      <h3>Calculateur de parpaings</h3>
+
+      <p>
+        Calculez le nombre de parpaings nécessaires
+        pour vos murs.
+      </p>
+
+      <span class="coming">
+        Bientôt disponible
+      </span>
+
+    </div>
+
+    <!-- COÛT DE CONSTRUCTION -->
+
+    <div class="card">
+
+      <div class="icon">💰</div>
+
+      <h3>Coût de construction</h3>
+
+      <p>
+        Obtenez une première estimation du budget
+        nécessaire pour construire votre maison.
+      </p>
+
+      <span class="coming">
+        Bientôt disponible
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+```
 
   </main>
 
   <script>
+
     function calculateConcrete() {
 
       const length = parseFloat(
@@ -380,6 +440,8 @@
         document.getElementById("thickness").value
       );
 
+      const mix = document.getElementById("mix").value;
+
       if (
         isNaN(length) ||
         isNaN(width) ||
@@ -388,7 +450,10 @@
         width <= 0 ||
         thicknessCm <= 0
       ) {
-        alert("Veuillez remplir correctement les trois dimensions.");
+        alert(
+          "Veuillez remplir correctement les trois dimensions."
+        );
+
         return;
       }
 
@@ -397,36 +462,72 @@
       const volume = length * width * thickness;
 
       /*
-        Estimation provisoire basée sur une composition
-        courante de béton.
-        Ces valeurs seront affinées pour MESUMAT
-        selon le dosage choisi.
+        Valeurs indicatives par m³,
+        basées sur les tableaux FAO de mélanges
+        nominaux de béton.
+
+        Les valeurs correspondent à des sacs de ciment
+        de 50 kg.
       */
 
-      const cementPerM3 = 7;
-      const sandPerM3 = 0.50;
-      const gravelPerM3 = 0.80;
+      const mixes = {
 
-      const cementBags = Math.ceil(volume * cementPerM3);
-      const sand = volume * sandPerM3;
-      const gravel = volume * gravelPerM3;
+        lean: {
+          cement: 4.0,
+          sand: 0.44,
+          gravel: 0.89
+        },
 
-      document.getElementById("concreteVolume").textContent =
+        ordinary: {
+          cement: 5.7,
+          sand: 0.42,
+          gravel: 0.85
+        },
+
+        rich: {
+          cement: 6.7,
+          sand: 0.50,
+          gravel: 0.74
+        }
+
+      };
+
+      const selectedMix = mixes[mix];
+
+      const cementBags = Math.ceil(
+        volume * selectedMix.cement
+      );
+
+      const sand = volume * selectedMix.sand;
+
+      const gravel = volume * selectedMix.gravel;
+
+      document.getElementById(
+        "concreteVolume"
+      ).textContent =
         volume.toFixed(2) + " m³";
 
-      document.getElementById("cementBags").textContent =
-        cementBags + " sacs";
+      document.getElementById(
+        "cementBags"
+      ).textContent =
+        cementBags + " sacs de 50 kg";
 
-      document.getElementById("sandVolume").textContent =
+      document.getElementById(
+        "sandVolume"
+      ).textContent =
         sand.toFixed(2) + " m³";
 
-      document.getElementById("gravelVolume").textContent =
+      document.getElementById(
+        "gravelVolume"
+      ).textContent =
         gravel.toFixed(2) + " m³";
 
       document
         .getElementById("concreteResult")
         .classList.add("visible");
+
     }
+
   </script>
 
 </body>
