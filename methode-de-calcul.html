@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comment calculons-nous les quantités ? — MESUMAT</title>
+  <meta name="description" content="Découvrez la méthode de calcul utilisée par MESUMAT pour estimer les quantités de ciment, sable et gravier nécessaires pour le béton.">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f7f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 20px;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #111;
+    }
+
+    .tagline {
+      margin-top: 2px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #222;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    h3 {
+      margin-top: 28px;
+      font-size: 19px;
+    }
+
+    .intro {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 35px;
+    }
+
+    .box {
+      background: #ffffff;
+      border: 1px solid #e2e2e2;
+      border-radius: 12px;
+      padding: 22px;
+      margin: 25px 0;
+    }
+
+    .formula {
+      background: #f0f0ed;
+      border-radius: 8px;
+      padding: 16px;
+      font-weight: 700;
+      margin: 15px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #ffffff;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f0f0ed;
+    }
+
+    .warning {
+      background: #fff8e6;
+      border-left: 4px solid #d9a441;
+      padding: 18px;
+      margin: 30px 0;
+    }
+
+    .sources {
+      background: #ffffff;
+      border: 1px solid #e2e2e2;
+      border-radius: 12px;
+      padding: 22px;
+      margin-top: 35px;
+    }
+
+    .sources a {
+      color: #222;
+    }
+
+    footer {
+      max-width: 900px;
+      margin: auto;
+      padding: 0 20px 40px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+
+      th,
+      td {
+        padding: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">MESUMAT</div>
+      <div class="tagline">Mesure les matériaux.</div>
+    </div>
+  </header>
+
+  <main>
+
+    <a class="back" href="index.html">← Retour aux calculateurs</a>
+
+    <h1>Comment calculons-nous les quantités ?</h1>
+
+    <p class="intro">
+      Chez MESUMAT, notre objectif est simple : vous donner une estimation
+      claire et transparente des quantités de matériaux nécessaires à partir
+      des dimensions de votre ouvrage et d'un dosage nominal de béton.
+    </p>
+
+    <p>
+      Nous indiquons également les hypothèses utilisées et les limites de
+      cette méthode.
+    </p>
+
+    <h2>1. Calcul du volume de béton</h2>
+
+    <p>
+      La première étape consiste à calculer le volume de béton nécessaire.
+      Pour une forme rectangulaire, nous utilisons la formule suivante :
+    </p>
+
+    <div class="formula">
+      Volume = Longueur × Largeur × Épaisseur
+    </div>
+
+    <p>
+      L'épaisseur saisie en centimètres est convertie en mètres avant le calcul.
+    </p>
+
+    <div class="box">
+      <strong>Exemple :</strong><br><br>
+      Longueur : 5 m<br>
+      Largeur : 4 m<br>
+      Épaisseur : 10 cm = 0,10 m
+      <br><br>
+      5 × 4 × 0,10 = <strong>2,00 m³</strong>
+    </div>
+
+    <h2>2. Que signifie 1:2:4 ?</h2>
+
+    <p>
+      Les proportions telles que <strong>1:2:4</strong> sont appelées
+      <strong>dosages nominaux</strong>.
+    </p>
+
+    <p>
+      Elles indiquent les proportions relatives de ciment, de sable et de
+      gravier utilisées pour définir un type de mélange.
+    </p>
+
+    <p>
+      Elles ne constituent pas, à elles seules, une formulation complète
+      permettant de garantir une résistance mécanique précise.
+    </p>
+
+    <p>
+      La qualité du béton dépend notamment de la quantité d'eau, du rapport
+      eau/ciment, des caractéristiques et de la granulométrie des granulats,
+      de la mise en œuvre et de la cure.
+    </p>
+
+    <h2>3. Les coefficients utilisés par MESUMAT</h2>
+
+    <p>
+      Pour notre calculateur, nous utilisons des quantités indicatives
+      publiées par la FAO pour différents dosages nominaux par mètre cube
+      de béton, avec des sacs de ciment de 50 kg.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Dosage nominal</th>
+          <th>Ciment</th>
+          <th>Sable</th>
+          <th>Gravier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1:3:6</td>
+          <td>4,0 sacs de 50 kg</td>
+          <td>0,44 m³</td>
+          <td>0,89 m³</td>
+        </tr>
+        <tr>
+          <td>1:2:4</td>
+          <td>5,7 sacs de 50 kg</td>
+          <td>0,42 m³</td>
+          <td>0,85 m³</td>
+        </tr>
+        <tr>
+          <td>1:2:3</td>
+          <td>6,7 sacs de 50 kg</td>
+          <td>0,50 m³</td>
+          <td>0,74 m³</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      Ces valeurs correspondent à des quantités indicatives par
+      <strong>1 m³ de béton produit</strong>.
+    </p>
+
+    <h2>4. Comment calculons-nous les quantités ?</h2>
+
+    <p>
+      Une fois le volume de béton déterminé, chaque quantité est calculée
+      proportionnellement au volume.
+    </p>
+
+    <h3>Ciment</h3>
+
+    <div class="formula">
+      Nombre de sacs = Volume de béton × coefficient de ciment
+    </div>
+
+    <p>
+      Le résultat est arrondi à l'entier supérieur, car le calculateur
+      indique le nombre de sacs de 50 kg à prévoir.
+    </p>
+
+    <h3>Sable</h3>
+
+    <div class="formula">
+      Volume de sable = Volume de béton × coefficient de sable
+    </div>
+
+    <h3>Gravier</h3>
+
+    <div class="formula">
+      Volume de gravier = Volume de béton × coefficient de gravier
+    </div>
+
+    <h2>5. Exemple complet</h2>
+
+    <p>
+      Pour un volume de <strong>2,00 m³</strong> avec un dosage nominal
+      <strong>1:2:4</strong> :
+    </p>
+
+    <div class="box">
+      <strong>Ciment</strong><br>
+      2,00 × 5,7 = 11,4 sacs<br>
+      Arrondi à l'entier supérieur : <strong>12 sacs de 50 kg</strong>
+      <br><br>
+
+      <strong>Sable</strong><br>
+      2,00 × 0,42 = <strong>0,84 m³</strong>
+      <br><br>
+
+      <strong>Gravier</strong><br>
+      2,00 × 0,85 = <strong>1,70 m³</strong>
+    </div>
+
+    <h2>6. Pourquoi ne donnons-nous pas une quantité d'eau fixe ?</h2>
+
+    <p>
+      Nous ne donnons volontairement pas une quantité d'eau universelle
+      pour chaque dosage nominal.
+    </p>
+
+    <p>
+      La quantité d'eau nécessaire dépend notamment de la consistance
+      recherchée, des matériaux utilisés et de leur teneur en humidité.
+    </p>
+
+    <p>
+      Le rapport eau/ciment joue également un rôle majeur dans les
+      propriétés du béton durci.
+    </p>
+
+    <p>
+      Pour cette raison, une formulation précise destinée à atteindre une
+      résistance ou une durabilité déterminée nécessite davantage
+      d'informations sur les matériaux et les conditions d'utilisation.
+    </p>
+
+    <h2>7. Pourquoi les volumes de sable et de gravier ne correspondent-ils pas directement au ratio ?</h2>
+
+    <p>
+      Un dosage comme 1:2:4 ne signifie pas que l'on peut simplement
+      additionner les volumes de ciment, de sable et de gravier pour obtenir
+      exactement le volume final de béton.
+    </p>
+
+    <p>
+      Pendant le mélange, les grains s'organisent et les vides entre les
+      granulats sont remplis par les particules plus fines et la pâte de ciment.
+    </p>
+
+    <p>
+      C'est pourquoi MESUMAT utilise directement des coefficients exprimés
+      <strong>par mètre cube de béton produit</strong>.
+    </p>
+
+    <h2>8. Les pertes de chantier</h2>
+
+    <p>
+      Dans la pratique, une certaine quantité de matériaux peut être perdue
+      pendant le transport, le stockage, le dosage et la mise en œuvre.
+    </p>
+
+    <p>
+      Le calculateur MESUMAT présente d'abord les
+      <strong>quantités théoriques correspondant au volume demandé</strong>.
+    </p>
+
+    <p>
+      La quantité réellement à commander peut donc être légèrement
+      supérieure selon les conditions du chantier.
+    </p>
+
+    <h2>9. Ce que ce calculateur peut et ne peut pas faire</h2>
+
+    <h3>MESUMAT peut vous aider à :</h3>
+
+    <ul>
+      <li>estimer le volume de béton nécessaire ;</li>
+      <li>estimer les quantités de ciment, de sable et de gravier ;</li>
+      <li>comparer plusieurs dosages nominaux ;</li>
+      <li>préparer une première estimation des matériaux à acheter.</li>
+    </ul>
+
+    <h3>MESUMAT ne prétend pas :</h3>
+
+    <ul>
+      <li>garantir une résistance en MPa ;</li>
+      <li>remplacer une étude de formulation du béton ;</li>
+      <li>déterminer à lui seul le dosage adapté à un élément structurel ;</li>
+      <li>remplacer les prescriptions d'un ingénieur ou d'un professionnel qualifié ;</li>
+      <li>garantir la qualité finale du béton indépendamment des matériaux et de la mise en œuvre.</li>
+    </ul>
+
+    <h2>10. Pourquoi cette distinction est importante</h2>
+
+    <p>
+      Un béton destiné à un ouvrage particulier doit être formulé en fonction
+      de ses exigences.
+    </p>
+
+    <p>
+      Selon l'utilisation, il peut être nécessaire de prendre en compte
+      notamment la résistance mécanique recherchée, la durabilité, les
+      conditions d'exposition, la consistance, le rapport eau/ciment, les
+      caractéristiques des granulats, la taille maximale des granulats,
+      les caractéristiques du ciment et la cure du béton.
+    </p>
+
+    <p>
+      Les méthodes de formulation utilisées dans la pratique professionnelle
+      prennent ces paramètres en considération et peuvent nécessiter des
+      essais ou des ajustements.
+    </p>
+
+    <div class="warning">
+      <strong>Avertissement</strong><br><br>
+      Les résultats fournis par MESUMAT sont des estimations indicatives
+      basées sur des dosages nominaux documentés.
+      <br><br>
+      Ils ne constituent pas une étude de formulation du béton et ne
+      garantissent pas une résistance mécanique ou une durabilité donnée.
+      <br><br>
+      Pour les éléments structurels, les fondations, les poteaux, les poutres,
+      les dalles porteuses ou les ouvrages soumis à des exigences particulières,
+      faites valider le dosage et la conception par un professionnel qualifié.
+    </div>
+
+    <div class="sources">
+      <h2>11. Sources techniques</h2>
+
+      <p>
+        <strong>FAO — Farm structures: Building materials: Concrete</strong>
+      </p>
+
+      <p>
+        Source principale utilisée pour les dosages nominaux et les quantités
+        indicatives de matériaux par mètre cube.
+      </p>
+
+      <p>
+        <strong>American Concrete Institute (ACI)</strong>
+      </p>
+
+      <p>
+        Référence complémentaire concernant les principes de formulation du
+        béton, notamment la résistance, la durabilité, la maniabilité,
+        le rapport eau/ciment et les caractéristiques des granulats.
+      </p>
+
+      <p>
+        Les valeurs et les limites présentées sur cette page doivent être
+        interprétées comme une méthode d'estimation et non comme une
+        spécification de béton pour un ouvrage particulier.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    MESUMAT — Mesure les matériaux.
+  </footer>
+
+</body>
+</html>
