@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Comment calculons-nous les parpaings ? — MESUMAT</title>
+
+<meta
+name="description"
+content="Découvrez comment MESUMAT estime le nombre de parpaings nécessaires pour construire un mur."
+
+>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f5;
+      color: #17221b;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 24px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      border-bottom: 1px solid #e8e8e3;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .tagline {
+      color: #68736d;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 65px 7%;
+    }
+
+    .back {
+      margin-bottom: 35px;
+      font-size: 14px;
+    }
+
+    .back a {
+      color: #17221b;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .intro {
+      color: #66716b;
+      font-size: 18px;
+      margin-bottom: 45px;
+      max-width: 700px;
+    }
+
+    section {
+      background: white;
+      border: 1px solid #e1e3de;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin: 25px 0 10px;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    ul,
+    ol {
+      padding-left: 22px;
+      margin-bottom: 15px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .formula {
+      background: #f0f1ed;
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin: 15px 0;
+      font-weight: 600;
+      overflow-x: auto;
+    }
+
+    .example {
+      border-left: 4px solid #17221b;
+      padding: 18px 20px;
+      background: #f7f7f5;
+      margin-top: 18px;
+    }
+
+    .example p:last-child {
+      margin-bottom: 0;
+    }
+
+    .note {
+      color: #68736d;
+      font-size: 13px;
+    }
+
+    .warning {
+      background: #f0f1ed;
+      border-radius: 12px;
+      padding: 18px;
+      font-size: 14px;
+    }
+
+    .back-bottom {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .back-bottom a {
+      color: #17221b;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 7%;
+      color: #68736d;
+      font-size: 13px;
+    }
+
+    @media (max-width: 650px) {
+      header {
+        align-items: flex-start;
+        gap: 8px;
+        flex-direction: column;
+      }
+
+      main {
+        padding-top: 45px;
+      }
+
+      section {
+        padding: 23px;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">MESUMAT</div>
+    <div class="tagline">Mesure les matériaux.</div>
+  </header>
+
+  <main>
+
+```
+<div class="back">
+  <a href="index.html">← Retour aux calculateurs</a>
+</div>
+
+<h1>Comment calculons-nous les parpaings ?</h1>
+
+<p class="intro">
+  Le calculateur MESUMAT estime le nombre de parpaings nécessaires
+  à partir de la surface du mur, des ouvertures et d'une éventuelle
+  marge pour les pertes de chantier.
+</p>
+
+<section>
+
+  <h2>1. Calculer la surface du mur</h2>
+
+  <p>
+    Nous commençons par calculer la surface totale du mur à construire.
+  </p>
+
+  <div class="formula">
+    Surface du mur = longueur × hauteur
+  </div>
+
+  <p>
+    Par exemple, pour un mur de 10 m de longueur et 2,5 m de hauteur :
+  </p>
+
+  <div class="formula">
+    10 × 2,5 = 25 m²
+  </div>
+
+</section>
+
+<section>
+
+  <h2>2. Déduire les ouvertures</h2>
+
+  <p>
+    Les portes et les fenêtres occupent une partie de la surface du mur.
+    Cette surface ne nécessite donc pas de parpaings.
+  </p>
+
+  <h3>Surface d'une porte</h3>
+
+  <div class="formula">
+    Surface = largeur × hauteur
+  </div>
+
+  <h3>Surface d'une fenêtre</h3>
+
+  <div class="formula">
+    Surface = largeur × hauteur
+  </div>
+
+  <p>
+    Si plusieurs portes ou fenêtres ont les mêmes dimensions,
+    leur surface est multipliée par leur nombre.
+  </p>
+
+  <div class="formula">
+    Surface des ouvertures =
+    surface des portes + surface des fenêtres
+  </div>
+
+</section>
+
+<section>
+
+  <h2>3. Calculer la surface nette à construire</h2>
+
+  <p>
+    Nous retirons ensuite la surface des ouvertures de la surface
+    totale du mur.
+  </p>
+
+  <div class="formula">
+    Surface nette = surface du mur − surface des ouvertures
+  </div>
+
+  <p>
+    Le résultat ne peut pas être négatif. Si les ouvertures
+    représentent une surface supérieure à celle du mur saisie,
+    le calculateur retient une surface nette de 0 m².
+  </p>
+
+</section>
+
+<section>
+
+  <h2>4. Déterminer le nombre de parpaings</h2>
+
+  <p>
+    Pour le calcul, nous considérons la face visible d'un parpaing
+    standard de 40 × 20 cm.
+  </p>
+
+  <p>
+    Converties en mètres, ces dimensions correspondent à
+    0,40 m × 0,20 m.
+  </p>
+
+  <div class="formula">
+    Surface visible d'un parpaing = 0,40 × 0,20 = 0,08 m²
+  </div>
+
+  <p>
+    Le nombre de parpaings est ensuite obtenu en divisant la surface
+    nette du mur par la surface visible d'un parpaing.
+  </p>
+
+  <div class="formula">
+    Nombre de parpaings = surface nette ÷ 0,08
+  </div>
+
+  <p>
+    Le résultat est toujours arrondi à l'entier supérieur, car il n'est
+    pas possible de commander une fraction de parpaing pour compléter
+    le mur.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>5. Ajouter une marge pour les pertes</h2>
+
+  <p>
+    Sur un chantier, certains parpaings peuvent être cassés,
+    endommagés ou perdus pendant le transport et la mise en œuvre.
+  </p>
+
+  <p>
+    Le calculateur permet donc d'ajouter une marge de 5 % ou de 10 %.
+  </p>
+
+  <div class="formula">
+    Quantité avec marge =
+    quantité nécessaire × (1 + marge)
+  </div>
+
+  <p>
+    La quantité finale est également arrondie à l'entier supérieur.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>Exemple complet</h2>
+
+  <div class="example">
+
+    <p>
+      Prenons un mur de <strong>10 m × 2,5 m</strong>.
+    </p>
+
+    <p>
+      Surface totale :
+      <strong>10 × 2,5 = 25,00 m²</strong>
+    </p>
+
+    <p>
+      Supposons une porte de <strong>0,9 × 2,1 m</strong>
+      et deux fenêtres de <strong>1,2 × 1,2 m</strong>.
+    </p>
+
+    <p>
+      Surface de la porte :
+      <strong>0,9 × 2,1 = 1,89 m²</strong>
+    </p>
+
+    <p>
+      Surface des fenêtres :
+      <strong>2 × 1,2 × 1,2 = 2,88 m²</strong>
+    </p>
+
+    <p>
+      Surface totale des ouvertures :
+      <strong>1,89 + 2,88 = 4,77 m²</strong>
+    </p>
+
+    <p>
+      Surface nette :
+      <strong>25,00 − 4,77 = 20,23 m²</strong>
+    </p>
+
+    <p>
+      Nombre de parpaings :
+      <strong>20,23 ÷ 0,08 = 252,875</strong>
+    </p>
+
+    <p>
+      Après arrondi :
+      <strong>253 parpaings</strong>
+    </p>
+
+    <p>
+      Avec une marge de 5 % :
+      <strong>253 × 1,05 = 265,65</strong>
+    </p>
+
+    <p>
+      Quantité finale :
+      <strong>266 parpaings</strong>
+    </p>
+
+  </div>
+
+</section>
+
+<section>
+
+  <h2>Pourquoi le type de parpaing ne change-t-il pas le nombre calculé ?</h2>
+
+  <p>
+    Le calculateur propose actuellement des parpaings de
+    <strong>10 × 20 × 40 cm</strong>,
+    <strong>15 × 20 × 40 cm</strong> et
+    <strong>20 × 20 × 40 cm</strong>.
+  </p>
+
+  <p>
+    Ces trois modèles ont la même face visible :
+    <strong>40 × 20 cm</strong>.
+    Ils couvrent donc la même surface de mur lorsqu'ils sont posés
+    de la même manière.
+  </p>
+
+  <p>
+    Leur épaisseur change, mais pas leur surface visible.
+    C'est pourquoi le nombre de parpaings calculé reste identique.
+  </p>
+
+  <p class="note">
+    L'épaisseur du parpaing devient toutefois importante pour d'autres
+    calculs, notamment l'épaisseur du mur, le volume de maçonnerie
+    et certaines estimations de mortier.
+  </p>
+
+</section>
+
+<section>
+
+  <h2>Limites de l'estimation</h2>
+
+  <div class="warning">
+
+    <p>
+      Ce calcul fournit une estimation de la quantité de parpaings
+      nécessaire à partir des dimensions saisies.
+    </p>
+
+    <p>
+      Il ne tient pas compte de la disposition exacte des parpaings,
+      des découpes, des angles, des poteaux, des chaînages,
+      des joints de mortier ou des particularités du chantier.
+    </p>
+
+    <p>
+      La marge proposée sert uniquement à prévoir des pertes ou
+      de la casse. Elle ne remplace pas une vérification du besoin
+      réel sur le chantier.
+    </p>
+
+    <p>
+      Pour un ouvrage important ou soumis à des contraintes
+      particulières, faites valider les dimensions et la conception
+      par un professionnel qualifié.
+    </p>
+
+  </div>
+
+</section>
+
+<div class="back-bottom">
+  <a href="index.html">
+    ← Retour au calculateur de parpaings
+  </a>
+</div>
+```
+
+  </main>
+
+  <footer>
+    MESUMAT — Mesure les matériaux.
+  </footer>
+
+</body>
+
+</html>
