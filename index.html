@@ -428,130 +428,244 @@
 
         <!-- CALCULATEUR DE PARPAINGS -->
 
-        <div class="card">
+<!-- CALCULATEUR DE PARPAINGS -->
 
-          <div class="icon">🧱</div>
+<div class="card">
 
-          <h3>Calculateur de parpaings</h3>
+  <div class="icon">🧱</div>
 
-          <p>
-            Calculez le nombre de parpaings nécessaires
-            pour vos murs.
-          </p>
+  <h3>Calculateur de parpaings</h3>
 
-          <div class="calculator">
+  <p>
+    Calculez le nombre de parpaings nécessaires
+    pour vos murs.
+  </p>
 
-            <div class="field">
-              <label for="wallLength">Longueur du mur (m)</label>
+  <div class="calculator">
 
-              <input
-                id="wallLength"
-                type="number"
-                min="0"
-                step="0.01"
-                placeholder="Ex. 10"
-              >
-            </div>
+    <div class="field">
+      <label for="wallLength">Longueur du mur (m)</label>
 
-            <div class="field">
-              <label for="wallHeight">Hauteur du mur (m)</label>
+      <input
+        id="wallLength"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Ex. 10"
+      >
+    </div>
 
-              <input
-                id="wallHeight"
-                type="number"
-                min="0"
-                step="0.01"
-                placeholder="Ex. 2.5"
-              >
-            </div>
+    <div class="field">
+      <label for="wallHeight">Hauteur du mur (m)</label>
 
-            <div class="field">
+      <input
+        id="wallHeight"
+        type="number"
+        min="0"
+        step="0.01"
+        placeholder="Ex. 2.5"
+      >
+    </div>
 
-              <label for="blockType">
-                Type de parpaing
-              </label>
+    <div class="field">
 
-              <select id="blockType">
+      <label for="blockType">
+        Type de parpaing
+      </label>
 
-                <option value="10">
-                  10 × 20 × 40 cm
-                </option>
+      <select id="blockType">
 
-                <option value="15" selected>
-                  15 × 20 × 40 cm
-                </option>
+        <option value="10">
+          10 × 20 × 40 cm
+        </option>
 
-                <option value="20">
-                  20 × 20 × 40 cm
-                </option>
+        <option value="15" selected>
+          15 × 20 × 40 cm
+        </option>
 
-              </select>
+        <option value="20">
+          20 × 20 × 40 cm
+        </option>
 
-            </div>
+      </select>
 
-            <div class="field">
+    </div>
 
-              <label for="blockMargin">
-                Marge pour pertes de chantier *
-              </label>
+    <div class="field">
 
-              <select id="blockMargin">
+      <label for="doorCount">
+        Nombre de portes
+      </label>
 
-                <option value="0" selected>
-                  Aucune marge
-                </option>
+      <input
+        id="doorCount"
+        type="number"
+        min="0"
+        step="1"
+        value="0"
+        placeholder="Ex. 1"
+      >
 
-                <option value="0.05">
-                  5 % — petites pertes
-                </option>
+    </div>
 
-                <option value="0.10">
-                  10 % — pertes plus importantes
-                </option>
+    <div class="field">
 
-              </select>
+      <label for="doorWidth">
+        Largeur d'une porte (m)
+      </label>
 
-              <p class="field-help">
-                * Cette marge permet de prévoir quelques parpaings
-                supplémentaires en cas de casse ou de pertes.
-              </p>
+      <input
+        id="doorWidth"
+        type="number"
+        min="0"
+        step="0.01"
+        value="0.9"
+        placeholder="Ex. 0.9"
+      >
 
-            </div>
+    </div>
 
-            <button onclick="calculateBlocks()">
-              Calculer
-            </button>
+    <div class="field">
 
-            <div id="blockResult" class="result">
+      <label for="doorHeight">
+        Hauteur d'une porte (m)
+      </label>
 
-              <h4>Estimation des parpaings</h4>
+      <input
+        id="doorHeight"
+        type="number"
+        min="0"
+        step="0.01"
+        value="2.1"
+        placeholder="Ex. 2.1"
+      >
 
-              <div class="result-row">
-                <span>Surface du mur</span>
-                <strong id="wallArea"></strong>
-              </div>
+    </div>
 
-              <div class="result-row">
-                <span>Parpaings nécessaires</span>
-                <strong id="blockCount"></strong>
-              </div>
+    <div class="field">
 
-              <div class="result-row">
-                <span>Avec marge</span>
-                <strong id="blockCountWithMargin"></strong>
-              </div>
+      <label for="windowCount">
+        Nombre de fenêtres
+      </label>
 
-              <p class="note">
-                Estimation basée sur des parpaings de 40 × 20 cm
-                sur leur face visible. Les ouvertures (portes et
-                fenêtres) ne sont pas encore déduites.
-              </p>
+      <input
+        id="windowCount"
+        type="number"
+        min="0"
+        step="1"
+        value="0"
+        placeholder="Ex. 2"
+      >
 
-            </div>
+    </div>
 
-          </div>
+    <div class="field">
 
-        </div>
+      <label for="windowWidth">
+        Largeur d'une fenêtre (m)
+      </label>
+
+      <input
+        id="windowWidth"
+        type="number"
+        min="0"
+        step="0.01"
+        value="1.2"
+        placeholder="Ex. 1.2"
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label for="windowHeight">
+        Hauteur d'une fenêtre (m)
+      </label>
+
+      <input
+        id="windowHeight"
+        type="number"
+        min="0"
+        step="0.01"
+        value="1.2"
+        placeholder="Ex. 1.2"
+      >
+
+    </div>
+
+    <div class="field">
+
+      <label for="blockMargin">
+        Marge pour pertes de chantier *
+      </label>
+
+      <select id="blockMargin">
+
+        <option value="0" selected>
+          Aucune marge
+        </option>
+
+        <option value="0.05">
+          5 % — petites pertes
+        </option>
+
+        <option value="0.10">
+          10 % — pertes plus importantes
+        </option>
+
+      </select>
+
+      <p class="field-help">
+        * Cette marge permet de prévoir quelques parpaings
+        supplémentaires en cas de casse ou de pertes.
+      </p>
+
+    </div>
+
+    <button onclick="calculateBlocks()">
+      Calculer
+    </button>
+
+    <div id="blockResult" class="result">
+
+      <h4>Estimation des parpaings</h4>
+
+      <div class="result-row">
+        <span>Surface totale du mur</span>
+        <strong id="wallArea"></strong>
+      </div>
+
+      <div class="result-row">
+        <span>Surface des ouvertures</span>
+        <strong id="openingArea"></strong>
+      </div>
+
+      <div class="result-row">
+        <span>Surface nette à construire</span>
+        <strong id="netWallArea"></strong>
+      </div>
+
+      <div class="result-row">
+        <span>Parpaings nécessaires</span>
+        <strong id="blockCount"></strong>
+      </div>
+
+      <div class="result-row">
+        <span>Avec marge</span>
+        <strong id="blockCountWithMargin"></strong>
+      </div>
+
+      <p class="note">
+        Estimation basée sur des parpaings de 40 × 20 cm
+        sur leur face visible. Les dimensions des ouvertures
+        sont déduites de la surface totale du mur.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
 
         <!-- COÛT DE CONSTRUCTION -->
 
@@ -684,33 +798,121 @@
     }
 
 
-    function calculateBlocks() {
+ function calculateBlocks() {
 
-      const wallLength = parseFloat(
-        document.getElementById("wallLength").value
-      );
+  const wallLength = parseFloat(
+    document.getElementById("wallLength").value
+  );
 
-      const wallHeight = parseFloat(
-        document.getElementById("wallHeight").value
-      );
+  const wallHeight = parseFloat(
+    document.getElementById("wallHeight").value
+  );
 
-      const margin = parseFloat(
-        document.getElementById("blockMargin").value
-      );
+  const doorCount = parseInt(
+    document.getElementById("doorCount").value
+  ) || 0;
 
-      if (
-        isNaN(wallLength) ||
-        isNaN(wallHeight) ||
-        wallLength <= 0 ||
-        wallHeight <= 0
-      ) {
+  const doorWidth = parseFloat(
+    document.getElementById("doorWidth").value
+  ) || 0;
 
-        alert(
-          "Veuillez remplir correctement la longueur et la hauteur du mur."
-        );
+  const doorHeight = parseFloat(
+    document.getElementById("doorHeight").value
+  ) || 0;
 
-        return;
-      }
+  const windowCount = parseInt(
+    document.getElementById("windowCount").value
+  ) || 0;
+
+  const windowWidth = parseFloat(
+    document.getElementById("windowWidth").value
+  ) || 0;
+
+  const windowHeight = parseFloat(
+    document.getElementById("windowHeight").value
+  ) || 0;
+
+  const margin = parseFloat(
+    document.getElementById("blockMargin").value
+  );
+
+  if (
+    isNaN(wallLength) ||
+    isNaN(wallHeight) ||
+    wallLength <= 0 ||
+    wallHeight <= 0
+  ) {
+
+    alert(
+      "Veuillez remplir correctement la longueur et la hauteur du mur."
+    );
+
+    return;
+  }
+
+  /*
+    Un parpaing de 40 × 20 cm couvre :
+
+    0,40 × 0,20 = 0,08 m²
+
+    Donc :
+
+    1 / 0,08 = 12,5 parpaings par m²
+  */
+
+  const blockArea = 0.40 * 0.20;
+
+  const wallArea =
+    wallLength * wallHeight;
+
+  const doorArea =
+    doorCount * doorWidth * doorHeight;
+
+  const windowArea =
+    windowCount * windowWidth * windowHeight;
+
+  const openingArea =
+    doorArea + windowArea;
+
+  const netWallArea =
+    Math.max(0, wallArea - openingArea);
+
+  const blockCount =
+    Math.ceil(netWallArea / blockArea);
+
+  const blockCountWithMargin =
+    Math.ceil(blockCount * (1 + margin));
+
+  document.getElementById(
+    "wallArea"
+  ).textContent =
+    wallArea.toFixed(2) + " m²";
+
+  document.getElementById(
+    "openingArea"
+  ).textContent =
+    openingArea.toFixed(2) + " m²";
+
+  document.getElementById(
+    "netWallArea"
+  ).textContent =
+    netWallArea.toFixed(2) + " m²";
+
+  document.getElementById(
+    "blockCount"
+  ).textContent =
+    blockCount + " parpaings";
+
+  document.getElementById(
+    "blockCountWithMargin"
+  ).textContent =
+    blockCountWithMargin + " parpaings";
+
+  document
+    .getElementById("blockResult")
+    .classList.add("visible");
+
+}
 
       /*
         Un parpaing de 40 × 20 cm couvre :
