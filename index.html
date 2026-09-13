@@ -694,111 +694,111 @@
 
   <script>
 
-    function calculateConcrete() {
+function calculateConcrete() {
 
-      const length = parseFloat(
-        document.getElementById("length").value
-      );
+  const length = parseFloat(
+    document.getElementById("length").value
+  );
 
-      const width = parseFloat(
-        document.getElementById("width").value
-      );
+  const width = parseFloat(
+    document.getElementById("width").value
+  );
 
-      const thicknessCm = parseFloat(
-        document.getElementById("thickness").value
-      );
+  const thicknessCm = parseFloat(
+    document.getElementById("thickness").value
+  );
 
-      const mix = document.getElementById("mix").value;
+  const mix = document.getElementById("mix").value;
 
-      const margin = parseFloat(
-        document.getElementById("margin").value
-      );
+  const margin = parseFloat(
+    document.getElementById("margin").value
+  );
 
-      if (
-        isNaN(length) ||
-        isNaN(width) ||
-        isNaN(thicknessCm) ||
-        length <= 0 ||
-        width <= 0 ||
-        thicknessCm <= 0
-      ) {
+  if (
+    isNaN(length) ||
+    isNaN(width) ||
+    isNaN(thicknessCm) ||
+    length <= 0 ||
+    width <= 0 ||
+    thicknessCm <= 0
+  ) {
+    alert(
+      "Veuillez remplir correctement les trois dimensions."
+    );
+    return;
+  }
 
-        alert(
-          "Veuillez remplir correctement les trois dimensions."
-        );
+  const thickness = thicknessCm / 100;
 
-        return;
-      }
+  const volume =
+    length * width * thickness;
 
-      const thickness = thicknessCm / 100;
+  const mixes = {
 
-      const volume = length * width * thickness;
+    lean: {
+      cement: 4.0,
+      sand: 0.44,
+      gravel: 0.89
+    },
 
-      const mixes = {
+    ordinary: {
+      cement: 5.7,
+      sand: 0.42,
+      gravel: 0.85
+    },
 
-        lean: {
-          cement: 4.0,
-          sand: 0.44,
-          gravel: 0.89
-        },
-
-        ordinary: {
-          cement: 5.7,
-          sand: 0.42,
-          gravel: 0.85
-        },
-
-        rich: {
-          cement: 6.7,
-          sand: 0.50,
-          gravel: 0.74
-        }
-
-      };
-
-      const selectedMix = mixes[mix];
-
-      const adjustedVolume =
-        volume * (1 + margin);
-
-      const cementBags = Math.ceil(
-        adjustedVolume * selectedMix.cement
-      );
-
-      const sand =
-        adjustedVolume * selectedMix.sand;
-
-      const gravel =
-        adjustedVolume * selectedMix.gravel;
-
-      document.getElementById(
-        "concreteVolume"
-      ).textContent =
-        adjustedVolume.toFixed(2) + " m³";
-
-      document.getElementById(
-        "cementBags"
-      ).textContent =
-        cementBags + " sacs de 50 kg";
-
-      document.getElementById(
-        "sandVolume"
-      ).textContent =
-        sand.toFixed(2) + " m³";
-
-      document.getElementById(
-        "gravelVolume"
-      ).textContent =
-        gravel.toFixed(2) + " m³";
-
-      document
-        .getElementById("concreteResult")
-        .classList.add("visible");
-
+    rich: {
+      cement: 6.7,
+      sand: 0.50,
+      gravel: 0.74
     }
 
+  };
 
- function calculateBlocks() {
+  const selectedMix = mixes[mix];
+
+  const adjustedVolume =
+    volume * (1 + margin);
+
+  const cementBags =
+    Math.ceil(
+      adjustedVolume * selectedMix.cement
+    );
+
+  const sand =
+    adjustedVolume * selectedMix.sand;
+
+  const gravel =
+    adjustedVolume * selectedMix.gravel;
+
+  document.getElementById(
+    "concreteVolume"
+  ).textContent =
+    adjustedVolume.toFixed(2) + " m³";
+
+  document.getElementById(
+    "cementBags"
+  ).textContent =
+    cementBags + " sacs de 50 kg";
+
+  document.getElementById(
+    "sandVolume"
+  ).textContent =
+    sand.toFixed(2) + " m³";
+
+  document.getElementById(
+    "gravelVolume"
+  ).textContent =
+    gravel.toFixed(2) + " m³";
+
+  document
+    .getElementById("concreteResult")
+    .classList.add("visible");
+
+}
+
+
+function calculateBlocks() {
 
   const wallLength = parseFloat(
     document.getElementById("wallLength").value
@@ -842,23 +842,11 @@
     wallLength <= 0 ||
     wallHeight <= 0
   ) {
-
     alert(
       "Veuillez remplir correctement la longueur et la hauteur du mur."
     );
-
     return;
   }
-
-  /*
-    Un parpaing de 40 × 20 cm couvre :
-
-    0,40 × 0,20 = 0,08 m²
-
-    Donc :
-
-    1 / 0,08 = 12,5 parpaings par m²
-  */
 
   const blockArea = 0.40 * 0.20;
 
@@ -881,7 +869,9 @@
     Math.ceil(netWallArea / blockArea);
 
   const blockCountWithMargin =
-    Math.ceil(blockCount * (1 + margin));
+    Math.ceil(
+      blockCount * (1 + margin)
+    );
 
   document.getElementById(
     "wallArea"
@@ -914,49 +904,7 @@
 
 }
 
-      /*
-        Un parpaing de 40 × 20 cm couvre :
-
-        0,40 × 0,20 = 0,08 m²
-
-        Donc :
-
-        1 / 0,08 = 12,5 parpaings par m²
-      */
-
-      const blockArea = 0.40 * 0.20;
-
-      const wallArea =
-        wallLength * wallHeight;
-
-      const blockCount =
-        Math.ceil(wallArea / blockArea);
-
-      const blockCountWithMargin =
-        Math.ceil(blockCount * (1 + margin));
-
-      document.getElementById(
-        "wallArea"
-      ).textContent =
-        wallArea.toFixed(2) + " m²";
-
-      document.getElementById(
-        "blockCount"
-      ).textContent =
-        blockCount + " parpaings";
-
-      document.getElementById(
-        "blockCountWithMargin"
-      ).textContent =
-        blockCountWithMargin + " parpaings";
-
-      document
-        .getElementById("blockResult")
-        .classList.add("visible");
-
-    }
-
-  </script>
+</script>
 
 </body>
 
