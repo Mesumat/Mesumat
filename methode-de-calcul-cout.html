@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Méthode de calcul — Coût de construction | MESUMAT</title>
+
+  <meta
+    name="description"
+    content="Découvrez comment MESUMAT estime le coût indicatif d'une construction selon le pays, la surface et le niveau de finition."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #17221b;
+      background: #f5f4ef;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    header {
+      background: #17221b;
+      color: white;
+      padding: 22px 20px;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .tagline {
+      margin: 4px 0 0;
+      color: #d7ddd8;
+      font-size: 0.92rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 55px 20px 80px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 30px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.1;
+    }
+
+    .intro {
+      color: #5d655f;
+      font-size: 1.05rem;
+      margin-bottom: 40px;
+    }
+
+    section {
+      background: white;
+      border: 1px solid #dfe3df;
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(23, 34, 27, 0.05);
+    }
+
+    h2 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .formula {
+      background: #eef2ee;
+      border-left: 4px solid #17221b;
+      padding: 15px 18px;
+      margin: 20px 0;
+      font-weight: 700;
+    }
+
+    .example {
+      background: #f5f4ef;
+      border: 1px solid #dfe3df;
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .warning {
+      background: #f4eee3;
+      border: 1px solid #e3d5bd;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    footer {
+      background: #17221b;
+      color: #d7ddd8;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 620px) {
+      main {
+        padding-top: 40px;
+      }
+
+      section {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">MESUMAT</div>
+    <p class="tagline">Mesure les matériaux.</p>
+  </div>
+</header>
+
+<main>
+
+  <a class="back-link" href="index.html">
+    ← Retour aux calculateurs
+  </a>
+
+  <h1>Méthode de calcul du coût de construction</h1>
+
+  <p class="intro">
+    Le calculateur MESUMAT fournit une première estimation indicative du budget
+    de construction à partir de trois éléments : le pays, la surface à construire
+    et le niveau de finition.
+  </p>
+
+
+  <section>
+    <h2>1. Choisir le pays</h2>
+
+    <p>
+      Les coûts de construction peuvent varier fortement d'un pays à l'autre.
+      Ils peuvent également varier à l'intérieur d'un même pays selon la ville,
+      la disponibilité des matériaux, le transport et le coût de la main-d'œuvre.
+    </p>
+
+    <p>
+      Le calculateur associe donc chaque pays à sa monnaie afin de présenter
+      l'estimation dans une unité directement utilisable localement.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>2. Indiquer la surface à construire</h2>
+
+    <p>
+      La surface est exprimée en mètres carrés (m²).
+      Elle correspond à la surface de construction utilisée pour établir
+      l'estimation du budget.
+    </p>
+
+    <p>
+      Plus la surface est importante, plus le budget estimatif augmente.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>3. Choisir le niveau de finition</h2>
+
+    <p>
+      Le niveau de finition permet de tenir compte des différences de coût
+      entre une construction simple, une construction standard et une
+      construction avec des prestations plus haut de gamme.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Économique :</strong> solutions et finitions simples,
+        avec une recherche de maîtrise du budget.
+      </li>
+
+      <li>
+        <strong>Standard :</strong> niveau de prestations courant pour
+        une construction résidentielle classique.
+      </li>
+
+      <li>
+        <strong>Haut standing :</strong> matériaux, équipements et finitions
+        généralement plus coûteux.
+      </li>
+    </ul>
+  </section>
+
+
+  <section>
+    <h2>4. Calculer le budget estimatif</h2>
+
+    <p>
+      Le calcul repose sur une fourchette indicative de prix au mètre carré.
+      Le principe est simple :
+    </p>
+
+    <div class="formula">
+      Budget estimatif = Surface × Prix indicatif au m²
+    </div>
+
+    <p>
+      Le calculateur utilise une valeur minimale et une valeur maximale.
+      Il fournit donc une fourchette plutôt qu'un prix unique.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>5. Exemple de calcul</h2>
+
+    <div class="example">
+      <p>
+        Prenons une construction de <strong>120 m²</strong> au
+        <strong>Burkina Faso</strong>, avec un niveau de finition
+        <strong>standard</strong>.
+      </p>
+
+      <p>
+        La fourchette indicative utilisée par le calculateur est de
+        <strong>180 000 à 260 000 FCFA par m²</strong>.
+      </p>
+
+      <p>
+        Budget minimum :
+        <strong>120 × 180 000 = 21 600 000 FCFA</strong>
+      </p>
+
+      <p>
+        Budget maximum :
+        <strong>120 × 260 000 = 31 200 000 FCFA</strong>
+      </p>
+
+      <p>
+        L'estimation obtenue est donc de :
+        <strong>21 600 000 à 31 200 000 FCFA</strong>.
+      </p>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>6. Pourquoi utiliser une fourchette ?</h2>
+
+    <p>
+      Le coût réel d'une construction ne dépend pas uniquement de sa surface.
+      Deux maisons de même superficie peuvent avoir des budgets très différents.
+    </p>
+
+    <p>
+      Parmi les facteurs qui peuvent modifier le coût, on peut notamment citer :
+    </p>
+
+    <ul>
+      <li>la ville et la localisation du chantier ;</li>
+      <li>le prix des matériaux ;</li>
+      <li>le coût et le niveau de la main-d'œuvre ;</li>
+      <li>le transport des matériaux ;</li>
+      <li>la nature et les caractéristiques du terrain ;</li>
+      <li>les fondations nécessaires ;</li>
+      <li>le type de structure ;</li>
+      <li>les équipements électriques et sanitaires ;</li>
+      <li>le niveau de finition ;</li>
+      <li>les choix architecturaux et techniques.</li>
+    </ul>
+
+    <p>
+      Une fourchette est donc plus honnête qu'un prix unique présenté
+      comme certain.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>7. Origine des prix</h2>
+
+    <p>
+      Les prix utilisés par MESUMAT sont des données indicatives issues de
+      recherches sur les prix et estimations de construction disponibles
+      pour les différents marchés.
+    </p>
+
+    <p>
+      Ces valeurs ne constituent pas un barème officiel et peuvent évoluer
+      avec le temps.
+    </p>
+
+    <p>
+      MESUMAT pourra progressivement améliorer ces estimations en intégrant
+      davantage de données par pays et, lorsque les données seront disponibles,
+      par ville ou région.
+    </p>
+  </section>
+
+
+  <section>
+    <h2>8. Limites de l'estimation</h2>
+
+    <div class="warning">
+      <p>
+        <strong>Important :</strong> le résultat fourni par ce calculateur
+        est une estimation indicative et ne constitue pas un devis de construction.
+      </p>
+
+      <p>
+        Le budget réel doit être établi en fonction du projet concret,
+        des plans, du terrain, des matériaux, de la main-d'œuvre et des
+        choix techniques.
+      </p>
+
+      <p>
+        Pour un projet important, il est recommandé de faire établir ou
+        vérifier le budget par un professionnel qualifié.
+      </p>
+    </div>
+  </section>
+
+
+  <section>
+    <h2>9. Mise à jour des estimations</h2>
+
+    <p>
+      Les prix de construction peuvent évoluer avec le temps.
+      MESUMAT pourra donc mettre à jour progressivement les fourchettes
+      utilisées par le calculateur.
+    </p>
+
+    <p>
+      L'objectif est de rendre les estimations plus utiles pour les
+      utilisateurs locaux tout en conservant une présentation simple
+      et transparente.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p><strong>MESUMAT</strong> — Mesure les matériaux.</p>
+    <p>
+      Outils indicatifs pour faciliter les premières estimations de construction.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
