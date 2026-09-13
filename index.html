@@ -1,18 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MESUMAT — Mesure les matériaux</title>
-
-<meta
-name="description"
-content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires pour vos projets de construction."
-
->
+  <title>MESUMAT — Mesure les matériaux.</title>
 
   <style>
     * {
@@ -71,6 +62,12 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
       margin: 0 auto;
       color: #66716b;
       font-size: 18px;
+    }
+
+    .hero .positioning {
+      margin-top: 14px;
+      font-size: 15px;
+      color: #68736d;
     }
 
     .country {
@@ -237,9 +234,65 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
       border-radius: 20px;
     }
 
+    footer {
+      margin-top: 20px;
+      padding: 35px 7%;
+      background: white;
+      border-top: 1px solid #e8e8e3;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    .footer-brand {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 5px;
+    }
+
+    .footer-text {
+      color: #68736d;
+      font-size: 13px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #17221b;
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 25px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid #eeeeea;
+      color: #8a908b;
+      font-size: 12px;
+    }
+
     @media (max-width: 850px) {
       .tools {
         grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        flex-direction: column;
       }
     }
 
@@ -253,9 +306,12 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
         gap: 8px;
         flex-direction: column;
       }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
     }
   </style>
-
 </head>
 
 <body>
@@ -267,469 +323,298 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
 
   <main>
 
-```
-<section class="hero">
-
-  <h1>Construisez avec<br>plus de clarté.</h1>
-
-  <p>
-    Des outils simples pour estimer les matériaux,
-    les quantités et le coût de vos projets de construction.
-  </p>
-
-  <div class="country">
-    🌍 <strong>Votre pays :</strong> Burkina Faso
-  </div>
-
-</section>
-
-<section>
-
-  <h2 class="tools-title">Nos calculateurs</h2>
-
-  <div class="tools">
-
-    <!-- CALCULATEUR DE BÉTON -->
-
-    <div class="card">
-
-      <div class="icon">🧱</div>
-
-      <h3>Calculateur de béton</h3>
+    <section class="hero">
+      <h1>Construisez avec plus de clarté.</h1>
 
       <p>
-        Estimez les quantités de ciment, sable et gravier
-        nécessaires pour votre béton.
+        Des outils simples pour estimer les matériaux, les quantités
+        et le coût de vos projets de construction.
       </p>
 
-      <div class="calculator">
+      <p class="positioning">
+        Des outils pensés pour les réalités des projets de construction en Afrique francophone.
+      </p>
 
-        <div class="field">
-          <label for="length">Longueur (m)</label>
-          <input
-            id="length"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="Ex. 5"
-          >
-        </div>
+      <div class="country">
+        🌍 <strong>Votre pays :</strong> Burkina Faso
+      </div>
+    </section>
 
-        <div class="field">
-          <label for="width">Largeur (m)</label>
-          <input
-            id="width"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="Ex. 4"
-          >
-        </div>
+    <section>
+      <h2 class="tools-title">Nos calculateurs</h2>
 
-        <div class="field">
-          <label for="thickness">Épaisseur (cm)</label>
-          <input
-            id="thickness"
-            type="number"
-            min="0"
-            step="0.1"
-            placeholder="Ex. 10"
-          >
-        </div>
+      <div class="tools">
 
-        <div class="field">
+        <!-- BÉTON -->
+        <article class="card">
+          <div class="icon">🧱</div>
 
-          <label for="mix">Type de béton</label>
+          <h3>Calculateur de béton</h3>
 
-          <select id="mix">
-
-            <option value="lean">
-              1:3:6 — Béton maigre
-            </option>
-
-            <option value="ordinary" selected>
-              1:2:4 — Béton courant
-            </option>
-
-            <option value="rich">
-              1:2:3 — Béton plus riche
-            </option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label for="margin">
-            Marge pour pertes de chantier *
-          </label>
-
-          <select id="margin">
-
-            <option value="0" selected>
-              Aucune marge
-            </option>
-
-            <option value="0.05">
-              5 % — petites pertes
-            </option>
-
-            <option value="0.10">
-              10 % — pertes plus importantes
-            </option>
-
-          </select>
-
-          <p class="field-help">
-            * Cette marge permet de prévoir une petite quantité
-            supplémentaire pour les pertes liées au transport,
-            au stockage et à la mise en œuvre.
+          <p>
+            Estimez les quantités de ciment, sable et gravier nécessaires
+            pour votre béton.
           </p>
 
-        </div>
+          <div class="calculator">
 
-        <button type="button" onclick="calculateConcrete()">
-          Calculer
-        </button>
+            <div class="field">
+              <label for="length">Longueur (m)</label>
+              <input type="number" id="length" min="0" step="0.01">
+            </div>
 
-        <div id="concreteResult" class="result">
+            <div class="field">
+              <label for="width">Largeur (m)</label>
+              <input type="number" id="width" min="0" step="0.01">
+            </div>
 
-          <h4>Estimation des matériaux</h4>
+            <div class="field">
+              <label for="thickness">Épaisseur (cm)</label>
+              <input type="number" id="thickness" min="0" step="0.1">
+            </div>
 
-          <div class="result-row">
-            <span>Volume de béton</span>
-            <strong id="concreteVolume"></strong>
+            <div class="field">
+              <label for="mix">Type de béton</label>
+              <select id="mix">
+                <option value="lean">1:3:6 — Béton maigre</option>
+                <option value="ordinary" selected>1:2:4 — Béton courant</option>
+                <option value="rich">1:2:3 — Béton plus riche</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="margin">Marge pour pertes de chantier *</label>
+              <select id="margin">
+                <option value="0">Aucune marge</option>
+                <option value="0.05">5 % — petites pertes</option>
+                <option value="0.10">10 % — pertes plus importantes</option>
+              </select>
+
+              <div class="field-help">
+                * Cette marge permet de prévoir une petite quantité supplémentaire
+                pour les pertes liées au transport, au stockage et à la mise en œuvre.
+              </div>
+            </div>
+
+            <button type="button" onclick="calculateConcrete()">
+              Calculer
+            </button>
+
+            <div class="result" id="concreteResult">
+              <h4>Estimation du béton</h4>
+
+              <div class="result-row">
+                <span>Volume de béton</span>
+                <strong id="concreteVolume"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Ciment</span>
+                <strong id="cementBags"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Sable</span>
+                <strong id="sandVolume"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Gravier</span>
+                <strong id="gravelVolume"></strong>
+              </div>
+
+              <p class="method-link">
+                <a href="methode-de-calcul.html">
+                  Comment calculons-nous les quantités ? →
+                </a>
+              </p>
+
+              <p class="note">
+                Estimation indicative basée sur des proportions nominales de mélange.
+                La marge sélectionnée sert uniquement à prévoir des pertes de chantier.
+                Pour les éléments structurels ou les ouvrages importants, faites valider
+                le dosage par un professionnel qualifié.
+              </p>
+            </div>
+
           </div>
+        </article>
 
-          <div class="result-row">
-            <span>Ciment</span>
-            <strong id="cementBags"></strong>
-          </div>
+        <!-- PARPAINGS -->
+        <article class="card">
+          <div class="icon">🧱</div>
 
-          <div class="result-row">
-            <span>Sable</span>
-            <strong id="sandVolume"></strong>
-          </div>
+          <h3>Calculateur de parpaings</h3>
 
-          <div class="result-row">
-            <span>Gravier</span>
-            <strong id="gravelVolume"></strong>
-          </div>
-
-          <p class="method-link">
-            <a href="methode-de-calcul.html">
-              Comment calculons-nous les quantités ? →
-            </a>
+          <p>
+            Calculez le nombre de parpaings nécessaires pour vos murs.
           </p>
 
-          <p class="note">
-            Estimation indicative basée sur des proportions
-            nominales de mélange. La marge sélectionnée sert
-            uniquement à prévoir des pertes de chantier.
-            Pour les éléments structurels ou les ouvrages
-            importants, faites valider le dosage par un
-            professionnel qualifié.
+          <div class="calculator">
+
+            <div class="field">
+              <label for="wallLength">Longueur du mur (m)</label>
+              <input type="number" id="wallLength" min="0" step="0.01">
+            </div>
+
+            <div class="field">
+              <label for="wallHeight">Hauteur du mur (m)</label>
+              <input type="number" id="wallHeight" min="0" step="0.01">
+            </div>
+
+            <div class="field">
+              <label for="blockType">Type de parpaing</label>
+              <select id="blockType">
+                <option value="10">10 × 20 × 40 cm</option>
+                <option value="15" selected>15 × 20 × 40 cm</option>
+                <option value="20">20 × 20 × 40 cm</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="doorCount">Nombre de portes</label>
+              <input type="number" id="doorCount" min="0" step="1" value="0">
+            </div>
+
+            <div class="field">
+              <label for="doorWidth">Largeur d'une porte (m)</label>
+              <input type="number" id="doorWidth" min="0" step="0.01" value="0.9">
+            </div>
+
+            <div class="field">
+              <label for="doorHeight">Hauteur d'une porte (m)</label>
+              <input type="number" id="doorHeight" min="0" step="0.01" value="2.1">
+            </div>
+
+            <div class="field">
+              <label for="windowCount">Nombre de fenêtres</label>
+              <input type="number" id="windowCount" min="0" step="1" value="0">
+            </div>
+
+            <div class="field">
+              <label for="windowWidth">Largeur d'une fenêtre (m)</label>
+              <input type="number" id="windowWidth" min="0" step="0.01" value="1.2">
+            </div>
+
+            <div class="field">
+              <label for="windowHeight">Hauteur d'une fenêtre (m)</label>
+              <input type="number" id="windowHeight" min="0" step="0.01" value="1.2">
+            </div>
+
+            <div class="field">
+              <label for="blockMargin">Marge pour pertes de chantier *</label>
+              <select id="blockMargin">
+                <option value="0">Aucune marge</option>
+                <option value="0.05">5 % — petites pertes</option>
+                <option value="0.10">10 % — pertes plus importantes</option>
+              </select>
+
+              <div class="field-help">
+                * Cette marge permet de prévoir quelques parpaings supplémentaires
+                en cas de casse ou de pertes.
+              </div>
+            </div>
+
+            <button type="button" onclick="calculateBlocks()">
+              Calculer
+            </button>
+
+            <div class="result" id="blockResult">
+              <h4>Estimation des parpaings</h4>
+
+              <div class="result-row">
+                <span>Surface totale du mur</span>
+                <strong id="wallArea"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Surface des ouvertures</span>
+                <strong id="openingArea"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Surface nette à construire</span>
+                <strong id="netWallArea"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Parpaings nécessaires</span>
+                <strong id="blockCount"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Avec marge</span>
+                <strong id="blockCountWithMargin"></strong>
+              </div>
+
+              <p class="method-link">
+                <a href="methode-de-calcul-parpaings.html">
+                  Comment calculons-nous les quantités ? →
+                </a>
+              </p>
+
+              <p class="note">
+                Estimation basée sur des parpaings de 40 × 20 cm sur leur face visible.
+                Les dimensions des ouvertures sont déduites de la surface totale du mur.
+              </p>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- COÛT -->
+        <article class="card">
+          <div class="icon">💰</div>
+
+          <h3>Coût de construction</h3>
+
+          <p>
+            Obtenez une première estimation du budget nécessaire
+            pour construire votre maison.
           </p>
 
-        </div>
+          <span class="coming">Bientôt disponible</span>
+        </article>
 
       </div>
-
-    </div>
-
-    <!-- CALCULATEUR DE PARPAINGS -->
-
-    <div class="card">
-
-      <div class="icon">🧱</div>
-
-      <h3>Calculateur de parpaings</h3>
-
-      <p>
-        Calculez le nombre de parpaings nécessaires
-        pour vos murs.
-      </p>
-
-      <div class="calculator">
-
-        <div class="field">
-          <label for="wallLength">Longueur du mur (m)</label>
-
-          <input
-            id="wallLength"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="Ex. 10"
-          >
-        </div>
-
-        <div class="field">
-          <label for="wallHeight">Hauteur du mur (m)</label>
-
-          <input
-            id="wallHeight"
-            type="number"
-            min="0"
-            step="0.01"
-            placeholder="Ex. 2.5"
-          >
-        </div>
-
-        <div class="field">
-
-          <label for="blockType">
-            Type de parpaing
-          </label>
-
-          <select id="blockType">
-
-            <option value="10">
-              10 × 20 × 40 cm
-            </option>
-
-            <option value="15" selected>
-              15 × 20 × 40 cm
-            </option>
-
-            <option value="20">
-              20 × 20 × 40 cm
-            </option>
-
-          </select>
-
-        </div>
-
-        <div class="field">
-
-          <label for="doorCount">
-            Nombre de portes
-          </label>
-
-          <input
-            id="doorCount"
-            type="number"
-            min="0"
-            step="1"
-            value="0"
-            placeholder="Ex. 1"
-          >
-
-        </div>
-
-        <div class="field">
-
-          <label for="doorWidth">
-            Largeur d'une porte (m)
-          </label>
-
-          <input
-            id="doorWidth"
-            type="number"
-            min="0"
-            step="0.01"
-            value="0.9"
-            placeholder="Ex. 0.9"
-          >
-
-        </div>
-
-        <div class="field">
-
-          <label for="doorHeight">
-            Hauteur d'une porte (m)
-          </label>
-
-          <input
-            id="doorHeight"
-            type="number"
-            min="0"
-            step="0.01"
-            value="2.1"
-            placeholder="Ex. 2.1"
-          >
-
-        </div>
-
-        <div class="field">
-
-          <label for="windowCount">
-            Nombre de fenêtres
-          </label>
-
-          <input
-            id="windowCount"
-            type="number"
-            min="0"
-            step="1"
-            value="0"
-            placeholder="Ex. 2"
-          >
-
-        </div>
-
-        <div class="field">
-
-          <label for="windowWidth">
-            Largeur d'une fenêtre (m)
-          </label>
-
-          <input
-            id="windowWidth"
-            type="number"
-            min="0"
-            step="0.01"
-            value="1.2"
-            placeholder="Ex. 1.2"
-          >
-
-        </div>
-
-        <div class="field">
-
-          <label for="windowHeight">
-            Hauteur d'une fenêtre (m)
-          </label>
-
-          <input
-            id="windowHeight"
-            type="number"
-            min="0"
-            step="0.01"
-            value="1.2"
-            placeholder="Ex. 1.2"
-          >
-
-        </div>
-
-        <div class="field">
-
-          <label for="blockMargin">
-            Marge pour pertes de chantier *
-          </label>
-
-          <select id="blockMargin">
-
-            <option value="0" selected>
-              Aucune marge
-            </option>
-
-            <option value="0.05">
-              5 % — petites pertes
-            </option>
-
-            <option value="0.10">
-              10 % — pertes plus importantes
-            </option>
-
-          </select>
-
-          <p class="field-help">
-            * Cette marge permet de prévoir quelques parpaings
-            supplémentaires en cas de casse ou de pertes.
-          </p>
-
-        </div>
-
-        <button type="button" onclick="calculateBlocks()">
-          Calculer
-        </button>
-
-        <div id="blockResult" class="result">
-
-          <h4>Estimation des parpaings</h4>
-
-          <div class="result-row">
-            <span>Surface totale du mur</span>
-            <strong id="wallArea"></strong>
-          </div>
-
-          <div class="result-row">
-            <span>Surface des ouvertures</span>
-            <strong id="openingArea"></strong>
-          </div>
-
-          <div class="result-row">
-            <span>Surface nette à construire</span>
-            <strong id="netWallArea"></strong>
-          </div>
-
-          <div class="result-row">
-            <span>Parpaings nécessaires</span>
-            <strong id="blockCount"></strong>
-          </div>
-
-          <div class="result-row">
-            <span>Avec marge</span>
-            <strong id="blockCountWithMargin"></strong>
-          </div>
-
-          <p class="method-link">
-            <a href="methode-de-calcul-parpaings.html">
-              Comment calculons-nous les quantités ? →
-            </a>
-          </p>
-
-          <p class="note">
-            Estimation basée sur des parpaings de 40 × 20 cm
-            sur leur face visible. Les dimensions des ouvertures
-            sont déduites de la surface totale du mur.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- COÛT DE CONSTRUCTION -->
-
-    <div class="card">
-
-      <div class="icon">💰</div>
-
-      <h3>Coût de construction</h3>
-
-      <p>
-        Obtenez une première estimation du budget
-        nécessaire pour construire votre maison.
-      </p>
-
-      <span class="coming">
-        Bientôt disponible
-      </span>
-
-    </div>
-
-  </div>
-
-</section>
-```
+    </section>
 
   </main>
 
+  <footer>
+    <div class="footer-inner">
+
+      <div>
+        <div class="footer-brand">MESUMAT</div>
+        <div class="footer-text">
+          Mesure les matériaux.
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="methode-de-calcul.html">
+          Méthode béton
+        </a>
+
+        <a href="methode-de-calcul-parpaings.html">
+          Méthode parpaings
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 MESUMAT — Outils d'estimation pour les projets de construction.
+    </div>
+  </footer>
+
   <script>
-
     function calculateConcrete() {
-
-      const length = parseFloat(
-        document.getElementById("length").value
-      );
-
-      const width = parseFloat(
-        document.getElementById("width").value
-      );
-
-      const thicknessCm = parseFloat(
-        document.getElementById("thickness").value
-      );
-
+      const length = parseFloat(document.getElementById("length").value);
+      const width = parseFloat(document.getElementById("width").value);
+      const thicknessCm = parseFloat(document.getElementById("thickness").value);
       const mix = document.getElementById("mix").value;
-
-      const margin = parseFloat(
-        document.getElementById("margin").value
-      );
+      const margin = parseFloat(document.getElementById("margin").value);
 
       if (
         isNaN(length) ||
@@ -739,119 +624,83 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
         width <= 0 ||
         thicknessCm <= 0
       ) {
-        alert(
-          "Veuillez remplir correctement les trois dimensions."
-        );
+        alert("Veuillez remplir correctement les trois dimensions.");
         return;
       }
 
       const thickness = thicknessCm / 100;
-
-      const volume =
-        length * width * thickness;
+      const volume = length * width * thickness;
 
       const mixes = {
-
         lean: {
           cement: 4.0,
           sand: 0.44,
           gravel: 0.89
         },
-
         ordinary: {
           cement: 5.7,
           sand: 0.42,
           gravel: 0.85
         },
-
         rich: {
           cement: 6.7,
           sand: 0.50,
           gravel: 0.74
         }
-
       };
 
       const selectedMix = mixes[mix];
+      const adjustedVolume = volume * (1 + margin);
 
-      const adjustedVolume =
-        volume * (1 + margin);
+      const cementBags = Math.ceil(
+        adjustedVolume * selectedMix.cement
+      );
 
-      const cementBags =
-        Math.ceil(
-          adjustedVolume * selectedMix.cement
-        );
+      const sand = adjustedVolume * selectedMix.sand;
+      const gravel = adjustedVolume * selectedMix.gravel;
 
-      const sand =
-        adjustedVolume * selectedMix.sand;
-
-      const gravel =
-        adjustedVolume * selectedMix.gravel;
-
-      document.getElementById(
-        "concreteVolume"
-      ).textContent =
+      document.getElementById("concreteVolume").textContent =
         adjustedVolume.toFixed(2) + " m³";
 
-      document.getElementById(
-        "cementBags"
-      ).textContent =
+      document.getElementById("cementBags").textContent =
         cementBags + " sacs de 50 kg";
 
-      document.getElementById(
-        "sandVolume"
-      ).textContent =
+      document.getElementById("sandVolume").textContent =
         sand.toFixed(2) + " m³";
 
-      document.getElementById(
-        "gravelVolume"
-      ).textContent =
+      document.getElementById("gravelVolume").textContent =
         gravel.toFixed(2) + " m³";
 
-      document
-        .getElementById("concreteResult")
-        .classList.add("visible");
-
+      document.getElementById("concreteResult").classList.add("visible");
     }
 
-
     function calculateBlocks() {
+      const wallLength =
+        parseFloat(document.getElementById("wallLength").value);
 
-      const wallLength = parseFloat(
-        document.getElementById("wallLength").value
-      );
+      const wallHeight =
+        parseFloat(document.getElementById("wallHeight").value);
 
-      const wallHeight = parseFloat(
-        document.getElementById("wallHeight").value
-      );
+      const doorCount =
+        parseInt(document.getElementById("doorCount").value) || 0;
 
-      const doorCount = parseInt(
-        document.getElementById("doorCount").value
-      ) || 0;
+      const doorWidth =
+        parseFloat(document.getElementById("doorWidth").value) || 0;
 
-      const doorWidth = parseFloat(
-        document.getElementById("doorWidth").value
-      ) || 0;
+      const doorHeight =
+        parseFloat(document.getElementById("doorHeight").value) || 0;
 
-      const doorHeight = parseFloat(
-        document.getElementById("doorHeight").value
-      ) || 0;
+      const windowCount =
+        parseInt(document.getElementById("windowCount").value) || 0;
 
-      const windowCount = parseInt(
-        document.getElementById("windowCount").value
-      ) || 0;
+      const windowWidth =
+        parseFloat(document.getElementById("windowWidth").value) || 0;
 
-      const windowWidth = parseFloat(
-        document.getElementById("windowWidth").value
-      ) || 0;
+      const windowHeight =
+        parseFloat(document.getElementById("windowHeight").value) || 0;
 
-      const windowHeight = parseFloat(
-        document.getElementById("windowHeight").value
-      ) || 0;
-
-      const margin = parseFloat(
-        document.getElementById("blockMargin").value
-      );
+      const margin =
+        parseFloat(document.getElementById("blockMargin").value);
 
       if (
         isNaN(wallLength) ||
@@ -886,43 +735,26 @@ content="MESUMAT vous aide à estimer les quantités de matériaux nécessaires 
         Math.ceil(netWallArea / blockArea);
 
       const blockCountWithMargin =
-        Math.ceil(
-          blockCount * (1 + margin)
-        );
+        Math.ceil(blockCount * (1 + margin));
 
-      document.getElementById(
-        "wallArea"
-      ).textContent =
+      document.getElementById("wallArea").textContent =
         wallArea.toFixed(2) + " m²";
 
-      document.getElementById(
-        "openingArea"
-      ).textContent =
+      document.getElementById("openingArea").textContent =
         openingArea.toFixed(2) + " m²";
 
-      document.getElementById(
-        "netWallArea"
-      ).textContent =
+      document.getElementById("netWallArea").textContent =
         netWallArea.toFixed(2) + " m²";
 
-      document.getElementById(
-        "blockCount"
-      ).textContent =
+      document.getElementById("blockCount").textContent =
         blockCount + " parpaings";
 
-      document.getElementById(
-        "blockCountWithMargin"
-      ).textContent =
+      document.getElementById("blockCountWithMargin").textContent =
         blockCountWithMargin + " parpaings";
 
-      document
-        .getElementById("blockResult")
-        .classList.add("visible");
-
+      document.getElementById("blockResult").classList.add("visible");
     }
-
   </script>
 
 </body>
-
 </html>
