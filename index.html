@@ -439,9 +439,117 @@
             pour vos murs.
           </p>
 
-          <span class="coming">
-            Bientôt disponible
-          </span>
+          <div class="calculator">
+
+            <div class="field">
+              <label for="wallLength">Longueur du mur (m)</label>
+
+              <input
+                id="wallLength"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex. 10"
+              >
+            </div>
+
+            <div class="field">
+              <label for="wallHeight">Hauteur du mur (m)</label>
+
+              <input
+                id="wallHeight"
+                type="number"
+                min="0"
+                step="0.01"
+                placeholder="Ex. 2.5"
+              >
+            </div>
+
+            <div class="field">
+
+              <label for="blockType">
+                Type de parpaing
+              </label>
+
+              <select id="blockType">
+
+                <option value="10">
+                  10 × 20 × 40 cm
+                </option>
+
+                <option value="15" selected>
+                  15 × 20 × 40 cm
+                </option>
+
+                <option value="20">
+                  20 × 20 × 40 cm
+                </option>
+
+              </select>
+
+            </div>
+
+            <div class="field">
+
+              <label for="blockMargin">
+                Marge pour pertes de chantier *
+              </label>
+
+              <select id="blockMargin">
+
+                <option value="0" selected>
+                  Aucune marge
+                </option>
+
+                <option value="0.05">
+                  5 % — petites pertes
+                </option>
+
+                <option value="0.10">
+                  10 % — pertes plus importantes
+                </option>
+
+              </select>
+
+              <p class="field-help">
+                * Cette marge permet de prévoir quelques parpaings
+                supplémentaires en cas de casse ou de pertes.
+              </p>
+
+            </div>
+
+            <button onclick="calculateBlocks()">
+              Calculer
+            </button>
+
+            <div id="blockResult" class="result">
+
+              <h4>Estimation des parpaings</h4>
+
+              <div class="result-row">
+                <span>Surface du mur</span>
+                <strong id="wallArea"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Parpaings nécessaires</span>
+                <strong id="blockCount"></strong>
+              </div>
+
+              <div class="result-row">
+                <span>Avec marge</span>
+                <strong id="blockCountWithMargin"></strong>
+              </div>
+
+              <p class="note">
+                Estimation basée sur des parpaings de 40 × 20 cm
+                sur leur face visible. Les ouvertures (portes et
+                fenêtres) ne sont pas encore déduites.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -512,15 +620,6 @@
 
       const volume = length * width * thickness;
 
-      /*
-        Valeurs indicatives par m³,
-        basées sur les tableaux FAO de mélanges
-        nominaux de béton.
-
-        Les valeurs correspondent à des sacs
-        de ciment de 50 kg.
-      */
-
       const mixes = {
 
         lean: {
@@ -544,11 +643,6 @@
       };
 
       const selectedMix = mixes[mix];
-
-      /*
-        La marge est appliquée aux quantités
-        pour prévoir les pertes de chantier.
-      */
 
       const adjustedVolume =
         volume * (1 + margin);
@@ -585,6 +679,77 @@
 
       document
         .getElementById("concreteResult")
+        .classList.add("visible");
+
+    }
+
+
+    function calculateBlocks() {
+
+      const wallLength = parseFloat(
+        document.getElementById("wallLength").value
+      );
+
+      const wallHeight = parseFloat(
+        document.getElementById("wallHeight").value
+      );
+
+      const margin = parseFloat(
+        document.getElementById("blockMargin").value
+      );
+
+      if (
+        isNaN(wallLength) ||
+        isNaN(wallHeight) ||
+        wallLength <= 0 ||
+        wallHeight <= 0
+      ) {
+
+        alert(
+          "Veuillez remplir correctement la longueur et la hauteur du mur."
+        );
+
+        return;
+      }
+
+      /*
+        Un parpaing de 40 × 20 cm couvre :
+
+        0,40 × 0,20 = 0,08 m²
+
+        Donc :
+
+        1 / 0,08 = 12,5 parpaings par m²
+      */
+
+      const blockArea = 0.40 * 0.20;
+
+      const wallArea =
+        wallLength * wallHeight;
+
+      const blockCount =
+        Math.ceil(wallArea / blockArea);
+
+      const blockCountWithMargin =
+        Math.ceil(blockCount * (1 + margin));
+
+      document.getElementById(
+        "wallArea"
+      ).textContent =
+        wallArea.toFixed(2) + " m²";
+
+      document.getElementById(
+        "blockCount"
+      ).textContent =
+        blockCount + " parpaings";
+
+      document.getElementById(
+        "blockCountWithMargin"
+      ).textContent =
+        blockCountWithMargin + " parpaings";
+
+      document
+        .getElementById("blockResult")
         .classList.add("visible");
 
     }
