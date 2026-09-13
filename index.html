@@ -533,9 +533,31 @@
         <label for="country">Pays / Devise</label>
 
         <select id="country">
+
           <option value="civ">Côte d'Ivoire — FCFA (XOF)</option>
           <option value="senegal">Sénégal — FCFA (XOF)</option>
           <option value="burkina">Burkina Faso — FCFA (XOF)</option>
+          <option value="mali">Mali — FCFA (XOF)</option>
+          <option value="benin">Bénin — FCFA (XOF)</option>
+          <option value="togo">Togo — FCFA (XOF)</option>
+
+          <option value="guinea">Guinée — GNF</option>
+
+          <option value="cameroon">Cameroun — FCFA (XAF)</option>
+          <option value="gabon">Gabon — FCFA (XAF)</option>
+          <option value="congo">Congo-Brazzaville — FCFA (XAF)</option>
+          <option value="chad">Tchad — FCFA (XAF)</option>
+          <option value="car">République centrafricaine — FCFA (XAF)</option>
+          <option value="equatorial">Guinée équatoriale — FCFA (XAF)</option>
+
+          <option value="drc">RDC — CDF</option>
+
+          <option value="mauritania">Mauritanie — MRU</option>
+
+          <option value="comoros">Comores — KMF</option>
+
+          <option value="djibouti">Djibouti — DJF</option>
+
         </select>
       </div>
 
@@ -769,18 +791,21 @@
 
   const constructionPrices = {
     civ: {
+      currency: "FCFA",
       economic: [160000, 250000],
       standard: [250000, 400000],
       high: [400000, 500000]
     },
 
     senegal: {
+      currency: "FCFA",
       economic: [150000, 250000],
       standard: [250000, 350000],
       high: [350000, 500000]
     },
 
     burkina: {
+      currency: "FCFA",
       economic: [120000, 180000],
       standard: [180000, 260000],
       high: [260000, 350000]
@@ -791,7 +816,21 @@
   const countryNames = {
     civ: "Côte d'Ivoire — FCFA (XOF)",
     senegal: "Sénégal — FCFA (XOF)",
-    burkina: "Burkina Faso — FCFA (XOF)"
+    burkina: "Burkina Faso — FCFA (XOF)",
+    mali: "Mali — FCFA (XOF)",
+    benin: "Bénin — FCFA (XOF)",
+    togo: "Togo — FCFA (XOF)",
+    guinea: "Guinée — GNF",
+    cameroon: "Cameroun — FCFA (XAF)",
+    gabon: "Gabon — FCFA (XAF)",
+    congo: "Congo-Brazzaville — FCFA (XAF)",
+    chad: "Tchad — FCFA (XAF)",
+    car: "République centrafricaine — FCFA (XAF)",
+    equatorial: "Guinée équatoriale — FCFA (XAF)",
+    drc: "RDC — CDF",
+    mauritania: "Mauritanie — MRU",
+    comoros: "Comores — KMF",
+    djibouti: "Djibouti — DJF"
   };
 
 
@@ -827,6 +866,13 @@
       return;
     }
 
+    if (!constructionPrices[country]) {
+      alert(
+        "Les prix indicatifs pour ce pays ne sont pas encore disponibles. MESUMAT les ajoutera progressivement."
+      );
+      return;
+    }
+
     const priceRange =
       constructionPrices[country][finish];
 
@@ -835,6 +881,9 @@
 
     const maxPrice =
       priceRange[1];
+
+    const currency =
+      constructionPrices[country].currency;
 
     const minBudget =
       surface * minPrice;
@@ -855,13 +904,16 @@
       formatNumber(minPrice) +
       " – " +
       formatNumber(maxPrice) +
-      " FCFA / m²";
+      " " +
+      currency +
+      " / m²";
 
     document.getElementById("constructionBudget").textContent =
       formatNumber(minBudget) +
       " – " +
       formatNumber(maxBudget) +
-      " FCFA";
+      " " +
+      currency;
 
     document
       .getElementById("constructionResult")
