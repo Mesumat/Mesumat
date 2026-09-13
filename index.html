@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MESUMAT — Calculateur de matériaux de construction</title>
+  <title>MESUMAT — Calculateurs de construction</title>
+
   <meta
     name="description"
-    content="MESUMAT aide à estimer les matériaux et le coût de construction en Afrique francophone."
+    content="MESUMAT propose des calculateurs simples pour estimer les matériaux et les coûts de construction."
   >
 
   <style>
@@ -22,32 +23,24 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      color: #17221b;
       background: #f5f4ef;
+      color: #17221b;
       line-height: 1.5;
-    }
-
-    a {
-      color: inherit;
     }
 
     header {
       background: #17221b;
       color: white;
-      padding: 22px 20px;
+      padding: 24px 20px;
     }
 
     .header-inner {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
     }
 
     .logo {
-      font-size: 1.45rem;
+      font-size: 1.6rem;
       font-weight: 800;
       letter-spacing: 1px;
     }
@@ -55,18 +48,7 @@
     .tagline {
       margin: 4px 0 0;
       color: #d7ddd8;
-      font-size: 0.92rem;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
       font-size: 0.95rem;
-      margin-left: 18px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     .hero {
@@ -76,14 +58,14 @@
     }
 
     .hero-inner {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
     .hero h1 {
-      max-width: 760px;
+      max-width: 780px;
       margin: 0 0 18px;
-      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-size: clamp(2.3rem, 6vw, 4.5rem);
       line-height: 1.05;
     }
 
@@ -95,23 +77,24 @@
     }
 
     main {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 55px 20px 80px;
+      padding: 60px 20px 80px;
     }
 
-    .section-title {
-      margin-bottom: 30px;
+    .section-intro {
+      max-width: 700px;
+      margin-bottom: 35px;
     }
 
-    .section-title h2 {
-      margin: 0 0 8px;
+    .section-intro h2 {
+      margin: 0 0 10px;
       font-size: 2rem;
     }
 
-    .section-title p {
+    .section-intro p {
       margin: 0;
-      color: #5d655f;
+      color: #5f675f;
     }
 
     .calculator-grid {
@@ -126,19 +109,18 @@
       background: white;
       border: 1px solid #dfe3df;
       border-radius: 14px;
-      padding: 26px;
-      box-shadow: 0 6px 20px rgba(23, 34, 27, 0.06);
+      padding: 28px;
+      box-shadow: 0 6px 20px rgba(23, 34, 27, 0.05);
     }
 
     .calculator-card h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
+      margin: 0 0 8px;
       font-size: 1.35rem;
     }
 
     .calculator-card > p {
-      color: #68706b;
-      font-size: 0.93rem;
+      color: #687069;
+      font-size: 0.94rem;
       margin-top: 0;
       margin-bottom: 22px;
     }
@@ -149,16 +131,16 @@
 
     label {
       display: block;
-      margin-bottom: 6px;
-      font-weight: 700;
+      margin-bottom: 7px;
       font-size: 0.9rem;
+      font-weight: 700;
     }
 
     input,
     select {
       width: 100%;
-      padding: 11px 12px;
-      border: 1px solid #cdd3ce;
+      padding: 12px 13px;
+      border: 1px solid #cfd6d0;
       border-radius: 8px;
       background: white;
       color: #17221b;
@@ -167,34 +149,32 @@
 
     input:focus,
     select:focus {
-      outline: 2px solid #17221b;
+      outline: 2px solid #9aa99e;
       outline-offset: 1px;
     }
 
-    .button {
+    button {
       width: 100%;
+      margin-top: 6px;
+      padding: 13px 16px;
       border: 0;
       border-radius: 8px;
-      padding: 12px 16px;
       background: #17221b;
       color: white;
-      font-weight: 700;
       font-size: 0.95rem;
+      font-weight: 700;
       cursor: pointer;
-      margin-top: 4px;
     }
 
-    .button:hover {
-      background: #26382c;
+    button:hover {
+      background: #25352a;
     }
 
     .result {
       display: none;
-      margin-top: 20px;
-      padding: 18px;
-      border-radius: 10px;
-      background: #eef2ee;
-      border: 1px solid #d6ddd7;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid #e1e5e1;
     }
 
     .result.visible {
@@ -205,8 +185,8 @@
       display: flex;
       justify-content: space-between;
       gap: 15px;
-      padding: 8px 0;
-      border-bottom: 1px solid #d7ddd8;
+      padding: 9px 0;
+      border-bottom: 1px solid #edf0ed;
       font-size: 0.92rem;
     }
 
@@ -218,29 +198,32 @@
       text-align: right;
     }
 
-    .note {
-      margin-top: 16px;
-      font-size: 0.8rem;
-      color: #68706b;
-    }
-
     .method-link {
       display: inline-block;
       margin-top: 18px;
-      font-size: 0.88rem;
-      font-weight: 700;
       color: #17221b;
+      font-size: 0.9rem;
+      font-weight: 700;
       text-decoration: underline;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 13px 14px;
+      background: #f5f4ef;
+      border-radius: 8px;
+      color: #626a63;
+      font-size: 0.82rem;
     }
 
     footer {
       background: #17221b;
       color: #d7ddd8;
-      padding: 35px 20px;
+      padding: 40px 20px;
     }
 
     .footer-inner {
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -251,7 +234,7 @@
 
     @media (max-width: 950px) {
       .calculator-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .calculator-card:last-child {
@@ -260,22 +243,12 @@
     }
 
     @media (max-width: 620px) {
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav a {
-        margin-left: 0;
-        margin-right: 15px;
-      }
-
       .hero {
         padding: 55px 20px 65px;
       }
 
       main {
-        padding-top: 40px;
+        padding-top: 45px;
       }
 
       .calculator-grid {
@@ -297,41 +270,38 @@
 
 <header>
   <div class="header-inner">
-    <div>
-      <div class="logo">MESUMAT</div>
-      <p class="tagline">Mesure les matériaux.</p>
-    </div>
-
-    <nav>
-      <a href="#calculators">Calculateurs</a>
-    </nav>
+    <div class="logo">MESUMAT</div>
+    <p class="tagline">Mesure les matériaux.</p>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-inner">
-    <h1>Les bons calculs pour mieux construire.</h1>
+    <h1>Des outils simples pour mieux estimer vos travaux.</h1>
+
     <p>
-      MESUMAT aide à estimer les matériaux et le coût de construction
-      avec des outils simples adaptés à l'Afrique francophone.
+      Calculez rapidement les quantités de matériaux et obtenez
+      une première estimation de votre budget de construction.
     </p>
   </div>
 </section>
 
-<main id="calculators">
+<main>
 
-  <div class="section-title">
+  <div class="section-intro">
     <h2>Calculateurs de construction</h2>
     <p>
-      Entrez vos dimensions pour obtenir une estimation rapide.
+      Des estimations simples pour préparer votre projet et mieux comprendre
+      les quantités et les coûts nécessaires.
     </p>
   </div>
 
-  <section class="calculator-grid">
+  <div class="calculator-grid">
 
-    <!-- CALCULATEUR BÉTON -->
+    <!-- CALCULATEUR DE BÉTON -->
 
     <article class="calculator-card">
+
       <h3>Calculateur de béton</h3>
 
       <p>
@@ -340,21 +310,40 @@
 
       <div class="field">
         <label for="length">Longueur (m)</label>
-        <input id="length" type="number" min="0" step="0.01" placeholder="Ex. 5">
+        <input
+          type="number"
+          id="length"
+          min="0"
+          step="0.01"
+          placeholder="Ex. 5"
+        >
       </div>
 
       <div class="field">
         <label for="width">Largeur (m)</label>
-        <input id="width" type="number" min="0" step="0.01" placeholder="Ex. 4">
+        <input
+          type="number"
+          id="width"
+          min="0"
+          step="0.01"
+          placeholder="Ex. 4"
+        >
       </div>
 
       <div class="field">
         <label for="thickness">Épaisseur (cm)</label>
-        <input id="thickness" type="number" min="0" step="0.1" placeholder="Ex. 10">
+        <input
+          type="number"
+          id="thickness"
+          min="0"
+          step="0.1"
+          placeholder="Ex. 10"
+        >
       </div>
 
       <div class="field">
         <label for="mix">Type de béton</label>
+
         <select id="mix">
           <option value="lean">1:3:6 — Béton maigre</option>
           <option value="ordinary" selected>1:2:4 — Béton courant</option>
@@ -364,6 +353,7 @@
 
       <div class="field">
         <label for="margin">Marge</label>
+
         <select id="margin">
           <option value="0">Aucune</option>
           <option value="0.05">5 %</option>
@@ -371,11 +361,12 @@
         </select>
       </div>
 
-      <button class="button" type="button" onclick="calculateConcrete()">
+      <button type="button" onclick="calculateConcrete()">
         Calculer
       </button>
 
-      <div id="concreteResult" class="result">
+      <div class="result" id="concreteResult">
+
         <div class="result-row">
           <span>Volume de béton</span>
           <strong id="concreteVolume"></strong>
@@ -395,42 +386,61 @@
           <span>Gravier</span>
           <strong id="gravelVolume"></strong>
         </div>
+
       </div>
 
-      <p class="note">
+      <a
+        class="method-link"
+        href="methode-de-calcul.html"
+      >
+        Voir la méthode de calcul →
+      </a>
+
+      <div class="note">
         Estimation indicative basée sur des proportions nominales de mélange.
         La marge sélectionnée sert uniquement à prévoir des pertes de chantier.
         Pour les éléments structurels ou les ouvrages importants, faites valider
         le dosage par un professionnel qualifié.
-      </p>
+      </div>
 
-      <a class="method-link" href="methode-de-calcul.html">
-        Voir la méthode de calcul →
-      </a>
     </article>
 
 
-    <!-- CALCULATEUR PARPAINGS -->
+    <!-- CALCULATEUR DE PARPAINGS -->
 
     <article class="calculator-card">
+
       <h3>Calculateur de parpaings</h3>
 
       <p>
-        Estimez le nombre de parpaings nécessaires pour un mur.
+        Estimez le nombre de parpaings nécessaires pour construire un mur.
       </p>
 
       <div class="field">
         <label for="wallLength">Longueur du mur (m)</label>
-        <input id="wallLength" type="number" min="0" step="0.01" placeholder="Ex. 10">
+        <input
+          type="number"
+          id="wallLength"
+          min="0"
+          step="0.01"
+          placeholder="Ex. 10"
+        >
       </div>
 
       <div class="field">
         <label for="wallHeight">Hauteur du mur (m)</label>
-        <input id="wallHeight" type="number" min="0" step="0.01" placeholder="Ex. 2.5">
+        <input
+          type="number"
+          id="wallHeight"
+          min="0"
+          step="0.01"
+          placeholder="Ex. 2.5"
+        >
       </div>
 
       <div class="field">
         <label for="blockType">Type de parpaing</label>
+
         <select id="blockType">
           <option value="10">10 × 20 × 40 cm</option>
           <option value="15" selected>15 × 20 × 40 cm</option>
@@ -440,36 +450,73 @@
 
       <div class="field">
         <label for="doorCount">Nombre de portes</label>
-        <input id="doorCount" type="number" min="0" step="1" value="0">
+        <input
+          type="number"
+          id="doorCount"
+          min="0"
+          step="1"
+          value="0"
+        >
       </div>
 
       <div class="field">
         <label for="doorWidth">Largeur d'une porte (m)</label>
-        <input id="doorWidth" type="number" min="0" step="0.01" value="0.9">
+        <input
+          type="number"
+          id="doorWidth"
+          min="0"
+          step="0.01"
+          value="0.9"
+        >
       </div>
 
       <div class="field">
         <label for="doorHeight">Hauteur d'une porte (m)</label>
-        <input id="doorHeight" type="number" min="0" step="0.01" value="2.1">
+        <input
+          type="number"
+          id="doorHeight"
+          min="0"
+          step="0.01"
+          value="2.1"
+        >
       </div>
 
       <div class="field">
         <label for="windowCount">Nombre de fenêtres</label>
-        <input id="windowCount" type="number" min="0" step="1" value="0">
+        <input
+          type="number"
+          id="windowCount"
+          min="0"
+          step="1"
+          value="0"
+        >
       </div>
 
       <div class="field">
         <label for="windowWidth">Largeur d'une fenêtre (m)</label>
-        <input id="windowWidth" type="number" min="0" step="0.01" value="1.2">
+        <input
+          type="number"
+          id="windowWidth"
+          min="0"
+          step="0.01"
+          value="1.2"
+        >
       </div>
 
       <div class="field">
         <label for="windowHeight">Hauteur d'une fenêtre (m)</label>
-        <input id="windowHeight" type="number" min="0" step="0.01" value="1.2">
+        <input
+          type="number"
+          id="windowHeight"
+          min="0"
+          step="0.01"
+          value="1.2"
+        >
       </div>
 
       <div class="field">
         <label for="blockMargin">Marge</label>
+
         <select id="blockMargin">
           <option value="0">Aucune</option>
           <option value="0.05">5 %</option>
@@ -477,11 +524,12 @@
         </select>
       </div>
 
-      <button class="button" type="button" onclick="calculateBlocks()">
+      <button type="button" onclick="calculateBlocks()">
         Calculer
       </button>
 
-      <div id="blockResult" class="result">
+      <div class="result" id="blockResult">
+
         <div class="result-row">
           <span>Surface totale du mur</span>
           <strong id="wallArea"></strong>
@@ -506,22 +554,28 @@
           <span>Avec marge</span>
           <strong id="blockCountWithMargin"></strong>
         </div>
+
       </div>
 
-      <p class="note">
-        Estimation basée sur des parpaings de 40 × 20 cm sur leur face visible.
-        Les dimensions des ouvertures sont déduites de la surface totale du mur.
-      </p>
-
-      <a class="method-link" href="methode-de-calcul-parpaings.html">
+      <a
+        class="method-link"
+        href="methode-de-calcul-parpaings.html"
+      >
         Voir la méthode de calcul →
       </a>
+
+      <div class="note">
+        Estimation basée sur des parpaings de 40 × 20 cm sur leur face visible.
+        Les dimensions des ouvertures sont déduites de la surface totale du mur.
+      </div>
+
     </article>
 
 
-    <!-- CALCULATEUR COÛT -->
+    <!-- CALCULATEUR DE COÛT -->
 
     <article class="calculator-card">
+
       <h3>Coût de construction</h3>
 
       <p>
@@ -530,97 +584,90 @@
       </p>
 
       <div class="field">
-        <label for="country">Pays / Devise</label>
+        <label for="country">Pays et monnaie</label>
 
         <select id="country">
-
           <option value="civ">Côte d'Ivoire — FCFA (XOF)</option>
           <option value="senegal">Sénégal — FCFA (XOF)</option>
           <option value="burkina">Burkina Faso — FCFA (XOF)</option>
           <option value="mali">Mali — FCFA (XOF)</option>
           <option value="benin">Bénin — FCFA (XOF)</option>
           <option value="togo">Togo — FCFA (XOF)</option>
-
           <option value="guinea">Guinée — GNF</option>
-
           <option value="cameroon">Cameroun — FCFA (XAF)</option>
           <option value="gabon">Gabon — FCFA (XAF)</option>
           <option value="congo">Congo-Brazzaville — FCFA (XAF)</option>
           <option value="chad">Tchad — FCFA (XAF)</option>
           <option value="car">République centrafricaine — FCFA (XAF)</option>
           <option value="equatorial">Guinée équatoriale — FCFA (XAF)</option>
-
           <option value="drc">RDC — CDF</option>
-
           <option value="mauritania">Mauritanie — MRU</option>
-
           <option value="comoros">Comores — KMF</option>
-
           <option value="djibouti">Djibouti — DJF</option>
-
         </select>
       </div>
 
       <div class="field">
-        <label for="surface">Surface à construire (m²)</label>
+        <label for="constructionArea">Surface à construire (m²)</label>
+
         <input
-          id="surface"
           type="number"
+          id="constructionArea"
           min="0"
-          step="0.1"
+          step="0.01"
           placeholder="Ex. 120"
         >
       </div>
 
       <div class="field">
-        <label for="finish">Niveau de finition</label>
+        <label for="finishLevel">Niveau de finition</label>
 
-        <select id="finish">
+        <select id="finishLevel">
           <option value="economic">Économique</option>
           <option value="standard" selected>Standard</option>
           <option value="high">Haut standing</option>
         </select>
       </div>
 
-      <button class="button" type="button" onclick="calculateConstructionCost()">
+      <button type="button" onclick="calculateConstructionCost()">
         Estimer le coût
       </button>
 
-      <div id="constructionResult" class="result">
+      <div class="result" id="constructionResult">
+
         <div class="result-row">
           <span>Pays</span>
-          <strong id="selectedCountry"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Surface</span>
-          <strong id="selectedSurface"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Finition</span>
-          <strong id="selectedFinish"></strong>
+          <strong id="constructionCountry"></strong>
         </div>
 
         <div class="result-row">
           <span>Prix indicatif au m²</span>
-          <strong id="pricePerSquareMeter"></strong>
+          <strong id="constructionPrice"></strong>
         </div>
 
         <div class="result-row">
           <span>Budget estimatif</span>
           <strong id="constructionBudget"></strong>
         </div>
+
       </div>
 
-      <p class="note">
-        Estimation indicative. Les prix peuvent varier fortement selon la ville,
-        les matériaux, la main-d'œuvre, le terrain, le niveau de finition
-        et les choix techniques.
-      </p>
+      <a
+        class="method-link"
+        href="methode-de-calcul-cout.html"
+      >
+        Voir la méthode de calcul →
+      </a>
+
+      <div class="note">
+        Estimation indicative. Les prix peuvent varier selon la ville,
+        le terrain, les matériaux, la main-d'œuvre, les équipements
+        et le niveau réel de finition.
+      </div>
+
     </article>
 
-  </section>
+  </div>
 
 </main>
 
@@ -635,12 +682,30 @@
 
 
 <script>
+
+  // =========================
+  // CALCULATEUR DE BÉTON
+  // =========================
+
   function calculateConcrete() {
-    const length = parseFloat(document.getElementById("length").value);
-    const width = parseFloat(document.getElementById("width").value);
-    const thicknessCm = parseFloat(document.getElementById("thickness").value);
+
+    const length = parseFloat(
+      document.getElementById("length").value
+    );
+
+    const width = parseFloat(
+      document.getElementById("width").value
+    );
+
+    const thicknessCm = parseFloat(
+      document.getElementById("thickness").value
+    );
+
     const mix = document.getElementById("mix").value;
-    const margin = parseFloat(document.getElementById("margin").value);
+
+    const margin = parseFloat(
+      document.getElementById("margin").value
+    );
 
     if (
       isNaN(length) ||
@@ -655,9 +720,14 @@
     }
 
     const thickness = thicknessCm / 100;
-    const volume = length * width * thickness;
+
+    const volume =
+      length *
+      width *
+      thickness;
 
     const mixes = {
+
       lean: {
         cement: 4.0,
         sand: 0.44,
@@ -675,64 +745,100 @@
         sand: 0.50,
         gravel: 0.74
       }
+
     };
 
     const selectedMix = mixes[mix];
 
-    const adjustedVolume = volume * (1 + margin);
+    const adjustedVolume =
+      volume *
+      (1 + margin);
 
-    const cementBags = Math.ceil(
-      adjustedVolume * selectedMix.cement
-    );
+    const cementBags =
+      Math.ceil(
+        adjustedVolume *
+        selectedMix.cement
+      );
 
-    const sand = adjustedVolume * selectedMix.sand;
-    const gravel = adjustedVolume * selectedMix.gravel;
+    const sand =
+      adjustedVolume *
+      selectedMix.sand;
 
-    document.getElementById("concreteVolume").textContent =
-      adjustedVolume.toFixed(2) + " m³";
+    const gravel =
+      adjustedVolume *
+      selectedMix.gravel;
 
-    document.getElementById("cementBags").textContent =
-      cementBags + " sacs de 50 kg";
+    document.getElementById(
+      "concreteVolume"
+    ).textContent =
+      adjustedVolume.toFixed(2) +
+      " m³";
 
-    document.getElementById("sandVolume").textContent =
-      sand.toFixed(2) + " m³";
+    document.getElementById(
+      "cementBags"
+    ).textContent =
+      cementBags +
+      " sacs de 50 kg";
 
-    document.getElementById("gravelVolume").textContent =
-      gravel.toFixed(2) + " m³";
+    document.getElementById(
+      "sandVolume"
+    ).textContent =
+      sand.toFixed(2) +
+      " m³";
 
-    document
-      .getElementById("concreteResult")
-      .classList.add("visible");
+    document.getElementById(
+      "gravelVolume"
+    ).textContent =
+      gravel.toFixed(2) +
+      " m³";
+
+    document.getElementById(
+      "concreteResult"
+    ).classList.add("visible");
   }
 
 
+  // =========================
+  // CALCULATEUR DE PARPAINGS
+  // =========================
+
   function calculateBlocks() {
-    const wallLength =
-      parseFloat(document.getElementById("wallLength").value);
 
-    const wallHeight =
-      parseFloat(document.getElementById("wallHeight").value);
+    const wallLength = parseFloat(
+      document.getElementById("wallLength").value
+    );
 
-    const doorCount =
-      parseInt(document.getElementById("doorCount").value) || 0;
+    const wallHeight = parseFloat(
+      document.getElementById("wallHeight").value
+    );
 
-    const doorWidth =
-      parseFloat(document.getElementById("doorWidth").value) || 0;
+    const doorCount = parseInt(
+      document.getElementById("doorCount").value
+    ) || 0;
 
-    const doorHeight =
-      parseFloat(document.getElementById("doorHeight").value) || 0;
+    const doorWidth = parseFloat(
+      document.getElementById("doorWidth").value
+    ) || 0;
 
-    const windowCount =
-      parseInt(document.getElementById("windowCount").value) || 0;
+    const doorHeight = parseFloat(
+      document.getElementById("doorHeight").value
+    ) || 0;
 
-    const windowWidth =
-      parseFloat(document.getElementById("windowWidth").value) || 0;
+    const windowCount = parseInt(
+      document.getElementById("windowCount").value
+    ) || 0;
 
-    const windowHeight =
-      parseFloat(document.getElementById("windowHeight").value) || 0;
+    const windowWidth = parseFloat(
+      document.getElementById("windowWidth").value
+    ) || 0;
 
-    const margin =
-      parseFloat(document.getElementById("blockMargin").value);
+    const windowHeight = parseFloat(
+      document.getElementById("windowHeight").value
+    ) || 0;
+
+    const margin = parseFloat(
+      document.getElementById("blockMargin").value
+    );
 
     if (
       isNaN(wallLength) ||
@@ -748,48 +854,84 @@
 
     const blockArea = 0.40 * 0.20;
 
-    const wallArea = wallLength * wallHeight;
+    const wallArea =
+      wallLength *
+      wallHeight;
 
     const doorArea =
-      doorCount * doorWidth * doorHeight;
+      doorCount *
+      doorWidth *
+      doorHeight;
 
     const windowArea =
-      windowCount * windowWidth * windowHeight;
+      windowCount *
+      windowWidth *
+      windowHeight;
 
     const openingArea =
-      doorArea + windowArea;
+      doorArea +
+      windowArea;
 
     const netWallArea =
-      Math.max(0, wallArea - openingArea);
+      Math.max(
+        0,
+        wallArea - openingArea
+      );
 
     const blockCount =
-      Math.ceil(netWallArea / blockArea);
+      Math.ceil(
+        netWallArea /
+        blockArea
+      );
 
     const blockCountWithMargin =
-      Math.ceil(blockCount * (1 + margin));
+      Math.ceil(
+        blockCount *
+        (1 + margin)
+      );
 
-    document.getElementById("wallArea").textContent =
-      wallArea.toFixed(2) + " m²";
+    document.getElementById(
+      "wallArea"
+    ).textContent =
+      wallArea.toFixed(2) +
+      " m²";
 
-    document.getElementById("openingArea").textContent =
-      openingArea.toFixed(2) + " m²";
+    document.getElementById(
+      "openingArea"
+    ).textContent =
+      openingArea.toFixed(2) +
+      " m²";
 
-    document.getElementById("netWallArea").textContent =
-      netWallArea.toFixed(2) + " m²";
+    document.getElementById(
+      "netWallArea"
+    ).textContent =
+      netWallArea.toFixed(2) +
+      " m²";
 
-    document.getElementById("blockCount").textContent =
-      blockCount + " parpaings";
+    document.getElementById(
+      "blockCount"
+    ).textContent =
+      blockCount +
+      " parpaings";
 
-    document.getElementById("blockCountWithMargin").textContent =
-      blockCountWithMargin + " parpaings";
+    document.getElementById(
+      "blockCountWithMargin"
+    ).textContent =
+      blockCountWithMargin +
+      " parpaings";
 
-    document
-      .getElementById("blockResult")
-      .classList.add("visible");
+    document.getElementById(
+      "blockResult"
+    ).classList.add("visible");
   }
 
 
+  // =========================
+  // CALCULATEUR DE COÛT
+  // =========================
+
   const constructionPrices = {
+
     civ: {
       currency: "FCFA",
       economic: [160000, 250000],
@@ -810,115 +952,147 @@
       standard: [180000, 260000],
       high: [260000, 350000]
     }
+
   };
 
 
   const countryNames = {
-    civ: "Côte d'Ivoire — FCFA (XOF)",
-    senegal: "Sénégal — FCFA (XOF)",
-    burkina: "Burkina Faso — FCFA (XOF)",
-    mali: "Mali — FCFA (XOF)",
-    benin: "Bénin — FCFA (XOF)",
-    togo: "Togo — FCFA (XOF)",
-    guinea: "Guinée — GNF",
-    cameroon: "Cameroun — FCFA (XAF)",
-    gabon: "Gabon — FCFA (XAF)",
-    congo: "Congo-Brazzaville — FCFA (XAF)",
-    chad: "Tchad — FCFA (XAF)",
-    car: "République centrafricaine — FCFA (XAF)",
-    equatorial: "Guinée équatoriale — FCFA (XAF)",
-    drc: "RDC — CDF",
-    mauritania: "Mauritanie — MRU",
-    comoros: "Comores — KMF",
-    djibouti: "Djibouti — DJF"
+
+    civ: "Côte d'Ivoire",
+
+    senegal: "Sénégal",
+
+    burkina: "Burkina Faso",
+
+    mali: "Mali",
+
+    benin: "Bénin",
+
+    togo: "Togo",
+
+    guinea: "Guinée",
+
+    cameroon: "Cameroun",
+
+    gabon: "Gabon",
+
+    congo: "Congo-Brazzaville",
+
+    chad: "Tchad",
+
+    car: "République centrafricaine",
+
+    equatorial: "Guinée équatoriale",
+
+    drc: "RDC",
+
+    mauritania: "Mauritanie",
+
+    comoros: "Comores",
+
+    djibouti: "Djibouti"
+
   };
-
-
-  const finishNames = {
-    economic: "Économique",
-    standard: "Standard",
-    high: "Haut standing"
-  };
-
-
-  function formatNumber(number) {
-    return new Intl.NumberFormat("fr-FR").format(number);
-  }
 
 
   function calculateConstructionCost() {
+
     const country =
-      document.getElementById("country").value;
+      document.getElementById(
+        "country"
+      ).value;
 
-    const surface =
-      parseFloat(document.getElementById("surface").value);
+    const area =
+      parseFloat(
+        document.getElementById(
+          "constructionArea"
+        ).value
+      );
 
-    const finish =
-      document.getElementById("finish").value;
+    const finishLevel =
+      document.getElementById(
+        "finishLevel"
+      ).value;
 
     if (
-      isNaN(surface) ||
-      surface <= 0
+      isNaN(area) ||
+      area <= 0
     ) {
       alert(
-        "Veuillez entrer une surface correcte."
+        "Veuillez indiquer une surface valide."
       );
       return;
     }
 
     if (!constructionPrices[country]) {
+
       alert(
         "Les prix indicatifs pour ce pays ne sont pas encore disponibles. MESUMAT les ajoutera progressivement."
       );
+
       return;
     }
 
-    const priceRange =
-      constructionPrices[country][finish];
+    const priceData =
+      constructionPrices[country];
 
-    const minPrice =
+    const priceRange =
+      priceData[finishLevel];
+
+    const minimumPrice =
       priceRange[0];
 
-    const maxPrice =
+    const maximumPrice =
       priceRange[1];
 
-    const currency =
-      constructionPrices[country].currency;
+    const minimumBudget =
+      area *
+      minimumPrice;
 
-    const minBudget =
-      surface * minPrice;
+    const maximumBudget =
+      area *
+      maximumPrice;
 
-    const maxBudget =
-      surface * maxPrice;
-
-    document.getElementById("selectedCountry").textContent =
+    document.getElementById(
+      "constructionCountry"
+    ).textContent =
       countryNames[country];
 
-    document.getElementById("selectedSurface").textContent =
-      formatNumber(surface) + " m²";
-
-    document.getElementById("selectedFinish").textContent =
-      finishNames[finish];
-
-    document.getElementById("pricePerSquareMeter").textContent =
-      formatNumber(minPrice) +
+    document.getElementById(
+      "constructionPrice"
+    ).textContent =
+      formatNumber(minimumPrice) +
       " – " +
-      formatNumber(maxPrice) +
+      formatNumber(maximumPrice) +
       " " +
-      currency +
+      priceData.currency +
       " / m²";
 
-    document.getElementById("constructionBudget").textContent =
-      formatNumber(minBudget) +
+    document.getElementById(
+      "constructionBudget"
+    ).textContent =
+      formatNumber(minimumBudget) +
       " – " +
-      formatNumber(maxBudget) +
+      formatNumber(maximumBudget) +
       " " +
-      currency;
+      priceData.currency;
 
-    document
-      .getElementById("constructionResult")
-      .classList.add("visible");
+    document.getElementById(
+      "constructionResult"
+    ).classList.add("visible");
   }
+
+
+  function formatNumber(number) {
+
+    return new Intl.NumberFormat(
+      "fr-FR"
+    ).format(
+      Math.round(number)
+    );
+
+  }
+
 </script>
 
 </body>
