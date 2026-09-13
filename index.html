@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
@@ -6,10 +7,11 @@
 
   <title>MESUMAT — Calculateurs de construction</title>
 
-  <meta
-    name="description"
-    content="MESUMAT propose des calculateurs simples pour estimer les matériaux et les coûts de construction."
-  >
+<meta
+name="description"
+content="MESUMAT propose des calculateurs simples pour estimer les matériaux et les coûts de construction."
+
+>
 
   <style>
     * {
@@ -264,6 +266,7 @@
       }
     }
   </style>
+
 </head>
 
 <body>
@@ -279,10 +282,13 @@
   <div class="hero-inner">
     <h1>Des outils simples pour mieux estimer vos travaux.</h1>
 
-    <p>
-      Calculez rapidement les quantités de matériaux et obtenez
-      une première estimation de votre budget de construction.
-    </p>
+```
+<p>
+  Calculez rapidement les quantités de matériaux et obtenez
+  une première estimation de votre budget de construction.
+</p>
+```
+
   </div>
 </section>
 
@@ -298,374 +304,376 @@
 
   <div class="calculator-grid">
 
-    <!-- CALCULATEUR DE BÉTON -->
-
-    <article class="calculator-card">
-
-      <h3>Calculateur de béton</h3>
-
-      <p>
-        Estimez le volume de béton, le ciment, le sable et le gravier nécessaires.
-      </p>
-
-      <div class="field">
-        <label for="length">Longueur (m)</label>
-        <input
-          type="number"
-          id="length"
-          min="0"
-          step="0.01"
-          placeholder="Ex. 5"
-        >
-      </div>
-
-      <div class="field">
-        <label for="width">Largeur (m)</label>
-        <input
-          type="number"
-          id="width"
-          min="0"
-          step="0.01"
-          placeholder="Ex. 4"
-        >
-      </div>
-
-      <div class="field">
-        <label for="thickness">Épaisseur (cm)</label>
-        <input
-          type="number"
-          id="thickness"
-          min="0"
-          step="0.1"
-          placeholder="Ex. 10"
-        >
-      </div>
-
-      <div class="field">
-        <label for="mix">Type de béton</label>
-
-        <select id="mix">
-          <option value="lean">1:3:6 — Béton maigre</option>
-          <option value="ordinary" selected>1:2:4 — Béton courant</option>
-          <option value="rich">1:2:3 — Béton plus riche</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="margin">Marge</label>
-
-        <select id="margin">
-          <option value="0">Aucune</option>
-          <option value="0.05">5 %</option>
-          <option value="0.10">10 %</option>
-        </select>
-      </div>
-
-      <button type="button" onclick="calculateConcrete()">
-        Calculer
-      </button>
-
-      <div class="result" id="concreteResult">
-
-        <div class="result-row">
-          <span>Volume de béton</span>
-          <strong id="concreteVolume"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Ciment</span>
-          <strong id="cementBags"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Sable</span>
-          <strong id="sandVolume"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Gravier</span>
-          <strong id="gravelVolume"></strong>
-        </div>
-
-      </div>
-
-      <a
-        class="method-link"
-        href="methode-de-calcul.html"
-      >
-        Voir la méthode de calcul →
-      </a>
-
-      <div class="note">
-        Estimation indicative basée sur des proportions nominales de mélange.
-        La marge sélectionnée sert uniquement à prévoir des pertes de chantier.
-        Pour les éléments structurels ou les ouvrages importants, faites valider
-        le dosage par un professionnel qualifié.
-      </div>
-
-    </article>
-
-
-    <!-- CALCULATEUR DE PARPAINGS -->
-
-    <article class="calculator-card">
-
-      <h3>Calculateur de parpaings</h3>
-
-      <p>
-        Estimez le nombre de parpaings nécessaires pour construire un mur.
-      </p>
-
-      <div class="field">
-        <label for="wallLength">Longueur du mur (m)</label>
-        <input
-          type="number"
-          id="wallLength"
-          min="0"
-          step="0.01"
-          placeholder="Ex. 10"
-        >
-      </div>
-
-      <div class="field">
-        <label for="wallHeight">Hauteur du mur (m)</label>
-        <input
-          type="number"
-          id="wallHeight"
-          min="0"
-          step="0.01"
-          placeholder="Ex. 2.5"
-        >
-      </div>
-
-      <div class="field">
-        <label for="blockType">Type de parpaing</label>
-
-        <select id="blockType">
-          <option value="10">10 × 20 × 40 cm</option>
-          <option value="15" selected>15 × 20 × 40 cm</option>
-          <option value="20">20 × 20 × 40 cm</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="doorCount">Nombre de portes</label>
-        <input
-          type="number"
-          id="doorCount"
-          min="0"
-          step="1"
-          value="0"
-        >
-      </div>
-
-      <div class="field">
-        <label for="doorWidth">Largeur d'une porte (m)</label>
-        <input
-          type="number"
-          id="doorWidth"
-          min="0"
-          step="0.01"
-          value="0.9"
-        >
-      </div>
-
-      <div class="field">
-        <label for="doorHeight">Hauteur d'une porte (m)</label>
-        <input
-          type="number"
-          id="doorHeight"
-          min="0"
-          step="0.01"
-          value="2.1"
-        >
-      </div>
-
-      <div class="field">
-        <label for="windowCount">Nombre de fenêtres</label>
-        <input
-          type="number"
-          id="windowCount"
-          min="0"
-          step="1"
-          value="0"
-        >
-      </div>
-
-      <div class="field">
-        <label for="windowWidth">Largeur d'une fenêtre (m)</label>
-        <input
-          type="number"
-          id="windowWidth"
-          min="0"
-          step="0.01"
-          value="1.2"
-        >
-      </div>
-
-      <div class="field">
-        <label for="windowHeight">Hauteur d'une fenêtre (m)</label>
-        <input
-          type="number"
-          id="windowHeight"
-          min="0"
-          step="0.01"
-          value="1.2"
-        >
-      </div>
-
-      <div class="field">
-        <label for="blockMargin">Marge</label>
-
-        <select id="blockMargin">
-          <option value="0">Aucune</option>
-          <option value="0.05">5 %</option>
-          <option value="0.10">10 %</option>
-        </select>
-      </div>
-
-      <button type="button" onclick="calculateBlocks()">
-        Calculer
-      </button>
-
-      <div class="result" id="blockResult">
-
-        <div class="result-row">
-          <span>Surface totale du mur</span>
-          <strong id="wallArea"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Surface des ouvertures</span>
-          <strong id="openingArea"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Surface nette à construire</span>
-          <strong id="netWallArea"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Parpaings nécessaires</span>
-          <strong id="blockCount"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Avec marge</span>
-          <strong id="blockCountWithMargin"></strong>
-        </div>
-
-      </div>
-
-      <a
-        class="method-link"
-        href="methode-de-calcul-parpaings.html"
-      >
-        Voir la méthode de calcul →
-      </a>
-
-      <div class="note">
-        Estimation basée sur des parpaings de 40 × 20 cm sur leur face visible.
-        Les dimensions des ouvertures sont déduites de la surface totale du mur.
-      </div>
-
-    </article>
-
-
-    <!-- CALCULATEUR DE COÛT -->
-
-    <article class="calculator-card">
-
-      <h3>Coût de construction</h3>
-
-      <p>
-        Obtenez une première estimation du budget selon le pays,
-        la surface et le niveau de finition.
-      </p>
-
-      <div class="field">
-        <label for="country">Pays et monnaie</label>
-
-        <select id="country">
-          <option value="civ">Côte d'Ivoire — FCFA (XOF)</option>
-          <option value="senegal">Sénégal — FCFA (XOF)</option>
-          <option value="burkina">Burkina Faso — FCFA (XOF)</option>
-          <option value="mali">Mali — FCFA (XOF)</option>
-          <option value="benin">Bénin — FCFA (XOF)</option>
-          <option value="togo">Togo — FCFA (XOF)</option>
-          <option value="guinea">Guinée — GNF</option>
-          <option value="cameroon">Cameroun — FCFA (XAF)</option>
-          <option value="gabon">Gabon — FCFA (XAF)</option>
-          <option value="congo">Congo-Brazzaville — FCFA (XAF)</option>
-          <option value="chad">Tchad — FCFA (XAF)</option>
-          <option value="car">République centrafricaine — FCFA (XAF)</option>
-          <option value="equatorial">Guinée équatoriale — FCFA (XAF)</option>
-          <option value="drc">RDC — CDF</option>
-          <option value="mauritania">Mauritanie — MRU</option>
-          <option value="comoros">Comores — KMF</option>
-          <option value="djibouti">Djibouti — DJF</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="constructionArea">Surface à construire (m²)</label>
-
-        <input
-          type="number"
-          id="constructionArea"
-          min="0"
-          step="0.01"
-          placeholder="Ex. 120"
-        >
-      </div>
-
-      <div class="field">
-        <label for="finishLevel">Niveau de finition</label>
-
-        <select id="finishLevel">
-          <option value="economic">Économique</option>
-          <option value="standard" selected>Standard</option>
-          <option value="high">Haut standing</option>
-        </select>
-      </div>
-
-      <button type="button" onclick="calculateConstructionCost()">
-        Estimer le coût
-      </button>
-
-      <div class="result" id="constructionResult">
-
-        <div class="result-row">
-          <span>Pays</span>
-          <strong id="constructionCountry"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Prix indicatif au m²</span>
-          <strong id="constructionPrice"></strong>
-        </div>
-
-        <div class="result-row">
-          <span>Budget estimatif</span>
-          <strong id="constructionBudget"></strong>
-        </div>
-
-      </div>
-
-      <a
-        class="method-link"
-        href="methode-de-calcul-cout.html"
-      >
-        Voir la méthode de calcul →
-      </a>
-
-      <div class="note">
-        Estimation indicative. Les prix peuvent varier selon la ville,
-        le terrain, les matériaux, la main-d'œuvre, les équipements
-        et le niveau réel de finition.
-      </div>
-
-    </article>
+```
+<!-- CALCULATEUR DE BÉTON -->
+
+<article class="calculator-card">
+
+  <h3>Calculateur de béton</h3>
+
+  <p>
+    Estimez le volume de béton, le ciment, le sable et le gravier nécessaires.
+  </p>
+
+  <div class="field">
+    <label for="length">Longueur (m)</label>
+    <input
+      type="number"
+      id="length"
+      min="0"
+      step="0.01"
+      placeholder="Ex. 5"
+    >
+  </div>
+
+  <div class="field">
+    <label for="width">Largeur (m)</label>
+    <input
+      type="number"
+      id="width"
+      min="0"
+      step="0.01"
+      placeholder="Ex. 4"
+    >
+  </div>
+
+  <div class="field">
+    <label for="thickness">Épaisseur (cm)</label>
+    <input
+      type="number"
+      id="thickness"
+      min="0"
+      step="0.1"
+      placeholder="Ex. 10"
+    >
+  </div>
+
+  <div class="field">
+    <label for="mix">Type de béton</label>
+
+    <select id="mix">
+      <option value="lean">1:3:6 — Béton maigre</option>
+      <option value="ordinary" selected>1:2:4 — Béton courant</option>
+      <option value="rich">1:2:3 — Béton plus riche</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="margin">Marge</label>
+
+    <select id="margin">
+      <option value="0">Aucune</option>
+      <option value="0.05">5 %</option>
+      <option value="0.10">10 %</option>
+    </select>
+  </div>
+
+  <button type="button" onclick="calculateConcrete()">
+    Calculer
+  </button>
+
+  <div class="result" id="concreteResult">
+
+    <div class="result-row">
+      <span>Volume de béton</span>
+      <strong id="concreteVolume"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Ciment</span>
+      <strong id="cementBags"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Sable</span>
+      <strong id="sandVolume"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Gravier</span>
+      <strong id="gravelVolume"></strong>
+    </div>
+
+  </div>
+
+  <a
+    class="method-link"
+    href="methode-de-calcul.html"
+  >
+    Voir la méthode de calcul →
+  </a>
+
+  <div class="note">
+    Estimation indicative basée sur des proportions nominales de mélange.
+    La marge sélectionnée sert uniquement à prévoir des pertes de chantier.
+    Pour les éléments structurels ou les ouvrages importants, faites valider
+    le dosage par un professionnel qualifié.
+  </div>
+
+</article>
+
+
+<!-- CALCULATEUR DE PARPAINGS -->
+
+<article class="calculator-card">
+
+  <h3>Calculateur de parpaings</h3>
+
+  <p>
+    Estimez le nombre de parpaings nécessaires pour construire un mur.
+  </p>
+
+  <div class="field">
+    <label for="wallLength">Longueur du mur (m)</label>
+    <input
+      type="number"
+      id="wallLength"
+      min="0"
+      step="0.01"
+      placeholder="Ex. 10"
+    >
+  </div>
+
+  <div class="field">
+    <label for="wallHeight">Hauteur du mur (m)</label>
+    <input
+      type="number"
+      id="wallHeight"
+      min="0"
+      step="0.01"
+      placeholder="Ex. 2.5"
+    >
+  </div>
+
+  <div class="field">
+    <label for="blockType">Type de parpaing</label>
+
+    <select id="blockType">
+      <option value="10">10 × 20 × 40 cm</option>
+      <option value="15" selected>15 × 20 × 40 cm</option>
+      <option value="20">20 × 20 × 40 cm</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="doorCount">Nombre de portes</label>
+    <input
+      type="number"
+      id="doorCount"
+      min="0"
+      step="1"
+      value="0"
+    >
+  </div>
+
+  <div class="field">
+    <label for="doorWidth">Largeur d'une porte (m)</label>
+    <input
+      type="number"
+      id="doorWidth"
+      min="0"
+      step="0.01"
+      value="0.9"
+    >
+  </div>
+
+  <div class="field">
+    <label for="doorHeight">Hauteur d'une porte (m)</label>
+    <input
+      type="number"
+      id="doorHeight"
+      min="0"
+      step="0.01"
+      value="2.1"
+    >
+  </div>
+
+  <div class="field">
+    <label for="windowCount">Nombre de fenêtres</label>
+    <input
+      type="number"
+      id="windowCount"
+      min="0"
+      step="1"
+      value="0"
+    >
+  </div>
+
+  <div class="field">
+    <label for="windowWidth">Largeur d'une fenêtre (m)</label>
+    <input
+      type="number"
+      id="windowWidth"
+      min="0"
+      step="0.01"
+      value="1.2"
+    >
+  </div>
+
+  <div class="field">
+    <label for="windowHeight">Hauteur d'une fenêtre (m)</label>
+    <input
+      type="number"
+      id="windowHeight"
+      min="0"
+      step="0.01"
+      value="1.2"
+    >
+  </div>
+
+  <div class="field">
+    <label for="blockMargin">Marge</label>
+
+    <select id="blockMargin">
+      <option value="0">Aucune</option>
+      <option value="0.05">5 %</option>
+      <option value="0.10">10 %</option>
+    </select>
+  </div>
+
+  <button type="button" onclick="calculateBlocks()">
+    Calculer
+  </button>
+
+  <div class="result" id="blockResult">
+
+    <div class="result-row">
+      <span>Surface totale du mur</span>
+      <strong id="wallArea"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Surface des ouvertures</span>
+      <strong id="openingArea"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Surface nette à construire</span>
+      <strong id="netWallArea"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Parpaings nécessaires</span>
+      <strong id="blockCount"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Avec marge</span>
+      <strong id="blockCountWithMargin"></strong>
+    </div>
+
+  </div>
+
+  <a
+    class="method-link"
+    href="methode-de-calcul-parpaings.html"
+  >
+    Voir la méthode de calcul →
+  </a>
+
+  <div class="note">
+    Estimation basée sur des parpaings de 40 × 20 cm sur leur face visible.
+    Les dimensions des ouvertures sont déduites de la surface totale du mur.
+  </div>
+
+</article>
+
+
+<!-- CALCULATEUR DE COÛT -->
+
+<article class="calculator-card">
+
+  <h3>Coût de construction</h3>
+
+  <p>
+    Obtenez une première estimation du budget selon le pays,
+    la surface et le niveau de finition.
+  </p>
+
+  <div class="field">
+    <label for="country">Pays et monnaie</label>
+
+    <select id="country">
+      <option value="civ">Côte d'Ivoire — FCFA (XOF)</option>
+      <option value="senegal">Sénégal — FCFA (XOF)</option>
+      <option value="burkina">Burkina Faso — FCFA (XOF)</option>
+      <option value="mali">Mali — FCFA (XOF)</option>
+      <option value="benin">Bénin — FCFA (XOF)</option>
+      <option value="togo">Togo — FCFA (XOF)</option>
+      <option value="guinea">Guinée — GNF</option>
+      <option value="cameroon">Cameroun — FCFA (XAF)</option>
+      <option value="gabon">Gabon — FCFA (XAF)</option>
+      <option value="congo">Congo-Brazzaville — FCFA (XAF)</option>
+      <option value="chad">Tchad — FCFA (XAF)</option>
+      <option value="car">République centrafricaine — FCFA (XAF)</option>
+      <option value="equatorial">Guinée équatoriale — FCFA (XAF)</option>
+      <option value="drc">RDC — CDF</option>
+      <option value="mauritania">Mauritanie — MRU</option>
+      <option value="comoros">Comores — KMF</option>
+      <option value="djibouti">Djibouti — DJF</option>
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="constructionArea">Surface à construire (m²)</label>
+
+    <input
+      type="number"
+      id="constructionArea"
+      min="0"
+      step="0.01"
+      placeholder="Ex. 120"
+    >
+  </div>
+
+  <div class="field">
+    <label for="finishLevel">Niveau de finition</label>
+
+    <select id="finishLevel">
+      <option value="economic">Économique</option>
+      <option value="standard" selected>Standard</option>
+      <option value="high">Haut standing</option>
+    </select>
+  </div>
+
+  <button type="button" onclick="calculateConstructionCost()">
+    Estimer le coût
+  </button>
+
+  <div class="result" id="constructionResult">
+
+    <div class="result-row">
+      <span>Pays</span>
+      <strong id="constructionCountry"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Prix indicatif au m²</span>
+      <strong id="constructionPrice"></strong>
+    </div>
+
+    <div class="result-row">
+      <span>Budget estimatif</span>
+      <strong id="constructionBudget"></strong>
+    </div>
+
+  </div>
+
+  <a
+    class="method-link"
+    href="methode-de-calcul-cout.html"
+  >
+    Voir la méthode de calcul →
+  </a>
+
+  <div class="note">
+    Estimation indicative. Les prix peuvent varier selon la ville,
+    le terrain, les matériaux, la main-d'œuvre, les équipements
+    et le niveau réel de finition.
+  </div>
+
+</article>
+```
 
   </div>
 
@@ -679,7 +687,6 @@
     </p>
   </div>
 </footer>
-
 
 <script>
 
@@ -1094,6 +1101,12 @@
   }
 
 </script>
+
+<!-- Cloudflare Web Analytics -->
+
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "0e2e288a0a25421fb9b00cee0de45f12"}'></script>
+
+<!-- End Cloudflare Web Analytics -->
 
 </body>
 </html>
