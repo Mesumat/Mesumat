@@ -684,22 +684,6 @@
 <script>
 
   // =========================
-  // TRACKING MESUMAT
-  // =========================
-
-  function trackCalculatorEvent(eventName) {
-
-    if (
-      typeof window.cf !== "undefined" &&
-      typeof window.cf.track === "function"
-    ) {
-      window.cf.track(eventName);
-    }
-
-  }
-
-
-  // =========================
   // CALCULATEUR DE BÉTON
   // =========================
 
@@ -811,8 +795,6 @@
     document.getElementById(
       "concreteResult"
     ).classList.add("visible");
-
-    trackCalculatorEvent("calcul_beton");
   }
 
 
@@ -941,8 +923,6 @@
     document.getElementById(
       "blockResult"
     ).classList.add("visible");
-
-    trackCalculatorEvent("calcul_parpaings");
   }
 
 
@@ -1100,8 +1080,6 @@
     document.getElementById(
       "constructionResult"
     ).classList.add("visible");
-
-    trackCalculatorEvent("calcul_cout");
   }
 
 
